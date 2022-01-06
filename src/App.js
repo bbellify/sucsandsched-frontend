@@ -32,7 +32,10 @@ function App() {
         
       <img className='App-logo' src={logo} alt='logo'/>
       <p>SUCS and Sched</p>
-      <Sucs />
+
+      <Routes>
+        <Route path={'/sucs'} element={<Sucs />}/>
+      </Routes>
 
     </div>
   );
