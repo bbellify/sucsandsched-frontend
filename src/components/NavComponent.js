@@ -21,6 +21,8 @@ function NavComponent(props) {
     <h2 className='p-0 pt-1'>sucs and sched</h2>
     
     <Navbar.Toggle className='ms-auto p-0'/>
+
+    {/* figure out how to close offcanvas onclick */}
         <Navbar.Offcanvas
             id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel"
