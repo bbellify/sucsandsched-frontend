@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
+import Container from 'react-bootstrap/Container'
+
 function Sucs(props) {
 
     const [sucs, setSucs] = useState([])
@@ -15,9 +17,9 @@ function Sucs(props) {
     }, [])
 
     return (
-        <div>
+        <Container>
             <h2>SUCS</h2>
-        </div>
+        </Container>
     )
 }
 

@@ -1,14 +1,15 @@
 import React from 'react'
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { Route, Routes } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap/';
 
+import Container from 'react-bootstrap/Container'
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import Navbar from 'react-bootstrap/Navbar'
 
-import logo from './logo.ico'
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
+import NavComponent from './components/NavComponent'
 import Sucs from './components/Sucs';
 
 import requireAuth from './utils/requireAuth'
@@ -16,39 +17,17 @@ import requireAuth from './utils/requireAuth'
 
 function App() {
   return (
-    <div className="App">
-      <nav className="App-header">
-        <Navbar>
-          <Navbar.Brand>
-            <img
-              className='App-logo' 
-              src={logo} alt='logo'
-            />
-          </Navbar.Brand>
-          <Breadcrumb>
-            <LinkContainer to='/'>
-              <Breadcrumb.Item>Home</Breadcrumb.Item>
-            </LinkContainer>
-
-            <LinkContainer to='/sucs'>
-              <Breadcrumb.Item>
-                SUCS
-              </Breadcrumb.Item>
-            </LinkContainer>
-
-          </Breadcrumb>
-        </Navbar>
-        
-      </nav>
-        
-  
-      <p>SUCS and Sched</p>
+    <React.Fragment>
+      <NavComponent />
+      <Container>
+        <p>SUCS and Sched</p>
+      </Container>
 
       <Routes>
         <Route path={'/sucs'} element={<Sucs />}/>
       </Routes>
 
-    </div>
+    </React.Fragment>
   );
 }
 
