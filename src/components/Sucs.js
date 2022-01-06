@@ -4,6 +4,8 @@ import axios from 'axios'
 import sucsImg from '../assets/sucs.jpg'
 
 import Container from 'react-bootstrap/Container'
+import Table from 'react-bootstrap/Table'
+
 
 function Sucs(props) {
 
@@ -19,8 +21,39 @@ function Sucs(props) {
     }, [])
 
     return (
-        <Container className='text-center'>
-            <h2>SUCS</h2>
+        <Container>
+
+            <h2 className='mt-2'>SUCS</h2>
+            
+
+            <Table >
+                <thead>
+                    <tr>
+                        <th>
+                            Day
+                        </th>
+                        <th>
+                            Situps
+                        </th>
+                        <th>
+                            Crunches
+                        </th>
+                        <th>
+                            Squats
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {sucs.forEach(day => {
+                        return (
+                        <td>
+                            {day.sucs_day}
+                        </td>
+                        )
+                    })}
+                </tbody>
+            </Table>
+
             <img src={sucsImg} alt='sucs'/>
         </Container>
     )
