@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
+import sucsImg from '../assets/sucs.jpg'
+
 import Container from 'react-bootstrap/Container'
 
 function Sucs(props) {
@@ -17,8 +19,9 @@ function Sucs(props) {
     }, [])
 
     return (
-        <Container>
+        <Container className='text-center'>
             <h2>SUCS</h2>
+            <img src={sucsImg} alt='sucs'/>
         </Container>
     )
 }
