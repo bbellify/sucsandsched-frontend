@@ -1,7 +1,9 @@
 import React from 'react'
-import { NavLink, Route, Routes, Navigate } from 'react-router-dom'
-import Breadcrumb from 'react-bootstrap/Breadcrumb';
+import { Route, Routes } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap/';
+
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
+import Navbar from 'react-bootstrap/Navbar'
 
 import logo from './logo.ico'
 import './App.css';
@@ -16,21 +18,30 @@ function App() {
   return (
     <div className="App">
       <nav className="App-header">
-        <Breadcrumb>
-          <LinkContainer to='/'>
-            <Breadcrumb.Item>Home</Breadcrumb.Item>
-          </LinkContainer>
+        <Navbar>
+          <Navbar.Brand>
+            <img
+              className='App-logo' 
+              src={logo} alt='logo'
+            />
+          </Navbar.Brand>
+          <Breadcrumb>
+            <LinkContainer to='/'>
+              <Breadcrumb.Item>Home</Breadcrumb.Item>
+            </LinkContainer>
 
-          <LinkContainer to='/sucs'>
-            <Breadcrumb.Item>
-              SUCS
-            </Breadcrumb.Item>
-          </LinkContainer>
+            <LinkContainer to='/sucs'>
+              <Breadcrumb.Item>
+                SUCS
+              </Breadcrumb.Item>
+            </LinkContainer>
 
-        </Breadcrumb>
+          </Breadcrumb>
+        </Navbar>
+        
       </nav>
         
-      <img className='App-logo' src={logo} alt='logo'/>
+  
       <p>SUCS and Sched</p>
 
       <Routes>
