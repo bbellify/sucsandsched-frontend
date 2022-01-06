@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
 
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
@@ -14,28 +13,42 @@ function NavComponent(props) {
 
     return (
 
-<Navbar bg="success" expand="lg">
-  <Container className='d-flex'>
-    <Navbar.Brand className='p-2'><img src={logo} alt='logo'/></Navbar.Brand>
-    <h2 className='p-2'>sucs and sched</h2>
-    <Navbar.Toggle className='ms-auto p-2'/>
-    <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className='ms-auto p-2'> 
-         <LinkContainer to='/account'>
-            <Nav.Link>Account</Nav.Link>
-        </LinkContainer>
-        <LinkContainer to='/'>
-            <Nav.Link>Home</Nav.Link>
-        </LinkContainer>
-        <LinkContainer to='/sucs'>
-            <Nav.Link>SUCS</Nav.Link>
-        </LinkContainer>
-        <NavDropdown.Divider />
-        <LinkContainer to='/logout'>
-            <Nav.Link>Logout</Nav.Link>
-        </LinkContainer>
-      </Nav>
-    </Navbar.Collapse>
+<Navbar bg="success" expand="false" className='py-0 my-0 sticky-top'>
+  <Container className='d-flex px-lg-0' >
+    <Navbar.Brand className='p-0 mb-1'><img src={logo} alt='logo'/></Navbar.Brand>
+    
+    {/* figure out how to make sucs and sched links */}
+    <h2 className='p-0 pt-1'>sucs and sched</h2>
+    
+    <Navbar.Toggle className='ms-auto p-0'/>
+        <Navbar.Offcanvas
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel"
+            placement="end"
+            className='w-auto p-1 d-flex'
+        > 
+            <LinkContainer to='/'>
+                <Nav.Link>Home</Nav.Link>
+            </LinkContainer>
+
+            <LinkContainer to='/account'>
+                <Nav.Link>Account</Nav.Link>
+            </LinkContainer>
+            
+            <LinkContainer to='/sucs'>
+                <Nav.Link>SUCS</Nav.Link>
+            </LinkContainer>
+            
+            <LinkContainer to='/sched'>
+                <Nav.Link>Sched</Nav.Link>
+            </LinkContainer>
+
+            <NavDropdown.Divider />
+            <LinkContainer to='/logout'>
+                <Nav.Link>Logout</Nav.Link>
+            </LinkContainer>
+
+        </Navbar.Offcanvas>
   </Container>
 </Navbar>
        
@@ -43,22 +56,3 @@ function NavComponent(props) {
 }
 
 export default NavComponent
-
-
-{/* <Container>
-<Navbar bg='dark' expand='lg'>
-    <Navbar.Brand>
-        <img
-        className='App-logo' 
-        src={logo} alt='logo'
-        />
-    </Navbar.Brand>
-    <Navbar.Toggle>
-    
-        
-
-        
-    
-    </Navbar.Toggle>
-</Navbar>
-</Container> */}
