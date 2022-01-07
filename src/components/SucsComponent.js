@@ -21,6 +21,7 @@ class SucsComponent extends React.Component {
 
     componentDidMount() {
         this.props.getSucs()
+        console.log(this.props.sucs)
     }
 
     render() {
@@ -29,13 +30,7 @@ class SucsComponent extends React.Component {
             <Container>
 
             {(this.props.isFetching || this.props.sucs.length === 0) && <h2 className='mt-2'>incoming...</h2>}
-            
-            {/* {this.props.sucs.map(day => {
-                return <p>test</p>
-            })} */}
-            
-
-            <Table >
+            {(this.props.sucs && <Table >
                 <thead>
                     <tr>
                         <th>
@@ -53,9 +48,18 @@ class SucsComponent extends React.Component {
                     </tr>
                 </thead>
                 <tbody>
-
+                    {this.props.sucs.map(day => {
+                        return (
+                            <tr>
+                                <td>{day['sucs_id']}</td>
+                                <td>{day['situps']}</td>
+                                <td>{day['crunches']}</td>
+                                <td>{day['squats']}</td>
+                            </tr>
+                        )
+                    })}
                 </tbody>
-            </Table>
+            </Table>)}
 
             <img src={sucsImg} alt='sucs'/>
         </Container>
@@ -71,11 +75,5 @@ const mapStateToProps = state => {
         error: state.sucs.error
     }
 }
-
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         getSucs
-//     }
-// }
 
 export default connect(mapStateToProps, { getSucs })(SucsComponent)
