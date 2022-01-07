@@ -21,12 +21,19 @@ export const getSucs = () => {
     return(dispatch) => {
         dispatch(fetchStart())
 
-        // might have to add http:// to BASE_URL also
-        axios.get(process.env.BASE_URL || `http://${process.env.REACT_APP_BASE_URL}/sucs`)
+        // what is going on with BASE_URL ... axios get works with deployed backend url
+        // might have to add http:// to BASE_URL
+        axios.get(
+            (process.env.BASE_URL ? `${process.env.BASE_URL}/api/sucs` : 
+            `http://${process.env.REACT_APP_BASE_URL}/api/sucs`)
+            // || `http://${process.env.REACT_APP_BASE_URL_DEV}/api/sucs`
+            )
             .then(res => {
                 dispatch(fetchSuccess(res.data))
             })
             .catch(err => {
+                console.log(process.env.BASE_URL)
+                console.log(process.env.REACT_APP_BASE_URL)
                 dispatch(fetchError(err))
             })
     }
