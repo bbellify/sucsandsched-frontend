@@ -1,12 +1,8 @@
 # Sucs and Sched
 ## Frontend App for simple fitness schedules
 
+### To Do
+1. Auth/login
+    - Sucs - when logged in, users can see progress of all users and complete days for themselves 
 
-Run Cards-
-find icons
-race website
-px more on lg than rest
-
-
-SUCS - when logged in, user can see progress of other users and toggle complete for any day
-
+2. Race cards - figure out how to change display for viewing other than mobile
