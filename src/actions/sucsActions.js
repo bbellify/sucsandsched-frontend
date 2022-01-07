@@ -21,7 +21,9 @@ export const getSucs = () => {
     return(dispatch) => {
         dispatch(fetchStart())
 
-        axios.get('https://sucsandsched.herokuapp.com/api/sucs')
+        const url = process.env.BASE_URL || process.env.REACT_APP_BASE_URL
+        console.log(url)
+        axios.get(url)
             .then(res => {
                 dispatch(fetchSuccess(res.data))
             })

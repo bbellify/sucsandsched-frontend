@@ -1,6 +1,9 @@
 # Sucs and Sched
 ## Frontend App for simple fitness schedules
 
+### Set Up
+1. Make sure an environment variable BASE_URL is set to database url
+
 ### MVP
 1. Anyone can go to the website and view sucs, the current running schedule, and upcoming races
 2. Users can create account
