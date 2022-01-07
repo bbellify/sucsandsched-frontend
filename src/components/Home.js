@@ -3,6 +3,7 @@ import React from 'react';
 import river from '../assets/river.png'
 import mountain from '../assets/mountain.png'
 import western from '../assets/western.png'
+import beer from '../assets/beer.png'
 
 import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
@@ -13,10 +14,10 @@ import ListGroupItem from 'react-bootstrap/ListGroupItem'
 
 function Home() {
     return (
-        <Container>
+        <Container className='px-md-0'>
             <h2 className='my-3'>Upcoming Races:</h2>
-            <Container className='px-0 d-md-flex justify-content-md' >
-                <Card className='shadow-sm mb-4 col-md-4 col-lg-4 me-md-3'>
+            <Container className='px-0 d-md-flex flex-wrap' >
+                <Card className='shadow-sm mb-4 col-md-4 col-lg-4'>
                     <Card.Img variant="top" src={river} className='p-4 pb-2' />
                     <Card.Body className='my-0'>
                         <Card.Title>Silver Falls Trail Challenge</Card.Title>
@@ -26,7 +27,17 @@ function Home() {
                     </Card.Body>
                 </Card>
 
-                <Card className='shadow-sm mb-4 col-md-4 col-lg-4 me-md-3'>
+                <Card className='shadow-sm mb-4 col-md-4 col-lg-4'>
+                    <Card.Img variant="top" src={beer} className='p-4 pb-2' />
+                    <Card.Body className='my-0'>
+                        <Card.Title>Bend Beer Run</Card.Title>
+                        <Card.Subtitle className='text-muted py-1'>5k - with beer</Card.Subtitle>
+                        <Card.Subtitle className='text-muted py-1'>September 3, 2022</Card.Subtitle>
+                        <Card.Link href='https://bendraces.com/bend-beer-run/' target='_blank'>website</Card.Link>
+                    </Card.Body>
+                </Card>
+
+                <Card className='shadow-sm mb-4 col-md-4 col-lg-4'>
                     <Card.Img variant="top" src={mountain} className='p-4 pb-2' />
                     <Card.Body className='my-0'>
                         <Card.Title>Three Sisters Skyline</Card.Title>
@@ -36,7 +47,7 @@ function Home() {
                     </Card.Body>
                 </Card>
 
-                <Card className='shadow-sm mb-4 col-md-4 col-lg-4 me-md-3'>
+                <Card className='shadow-sm mb-4 col-md-4 col-lg-4'>
                     <Card.Img variant="top" src={western} className='p-4 mb-1' />
                     <Card.Body className='my-0 mt-2'>
                         <Card.Title>Western States</Card.Title>
@@ -57,6 +68,7 @@ function Home() {
                         <ListGroupItem>Mountain by Florent B from NounProject.com
                         </ListGroupItem>
                         <ListGroupItem>Vertex by Marina Pugacheva from NounProject.com</ListGroupItem>
+                        <ListGroupItem>Beer by BirVa Mehta from NounProject.com</ListGroupItem>
                     </ListGroup>
                 </Card>
             
