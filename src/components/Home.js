@@ -109,10 +109,10 @@ class Home extends React.Component {
                     
                     <ListGroup className='list-group-flush'>
                         <ListGroupItem>River by Dong Ik Seo from NounProject.com</ListGroupItem>
+                        <ListGroupItem>Beer by BirVa Mehta from NounProject.com</ListGroupItem>
                         <ListGroupItem>Mountain by Florent B from NounProject.com
                         </ListGroupItem>
                         <ListGroupItem>Vertex by Marina Pugacheva from NounProject.com</ListGroupItem>
-                        <ListGroupItem>Beer by BirVa Mehta from NounProject.com</ListGroupItem>
                     </ListGroup>
                 </Card>
             
