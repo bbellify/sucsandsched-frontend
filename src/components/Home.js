@@ -12,7 +12,7 @@ import ListGroupItem from 'react-bootstrap/ListGroupItem'
 
 function Home() {
     return (
-        <Container className='justify-content-center'>
+        <Container className='d-flex flex-column align-items-md-center'>
             <h2 className='my-3'>Upcoming Races:</h2>
 
             <Card style={{ width: '100%', maxWidth: '500px' }} className='shadow-sm mb-4'>
