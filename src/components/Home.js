@@ -36,7 +36,7 @@ class Home extends React.Component {
             <h2 className='my-3'>Upcoming Races:</h2>
             <Container className='px-0 d-md-flex flex-wrap' >
                 <Card className='shadow-sm mb-4 col-md-4 col-lg-4 position-relative'>
-                    <div className='position-absolute top-0 end-0'>
+                    <div className='position-absolute top-0 end-0 d-md-none'>
                         <p 
                             className='fw-bolder text-dark mx-2'
                             onClick={(()=>{this.toggleDisplay('card1')})}
@@ -53,7 +53,7 @@ class Home extends React.Component {
                 </Card>
 
                 <Card className='shadow-sm mb-4 col-md-4 col-lg-4 position-relative'>
-                    <div className='position-absolute top-0 end-0'>
+                    <div className='position-absolute top-0 end-0 d-md-none'>
                         <p 
                             className='fw-bolder text-dark mx-2'
                             onClick={(()=>{this.toggleDisplay('card2')})}
@@ -70,7 +70,7 @@ class Home extends React.Component {
                 </Card>
 
                 <Card className='shadow-sm mb-4 col-md-4 col-lg-4 position-relative'>
-                    <div className='position-absolute top-0 end-0'>
+                    <div className='position-absolute top-0 end-0 d-md-none'>
                         <p 
                             className='fw-bolder text-dark mx-2'
                             onClick={(()=>{this.toggleDisplay('card3')})}
@@ -87,7 +87,7 @@ class Home extends React.Component {
                 </Card>
 
                 <Card className='shadow-sm mb-4 col-md-4 col-lg-4'>
-                    <div className='position-absolute top-0 end-0'>
+                    <div className='position-absolute top-0 end-0 d-md-none'>
                         <p 
                             className='fw-bolder text-dark mx-2'
                             onClick={(()=>{this.toggleDisplay('card4')})}
