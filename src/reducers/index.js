@@ -5,7 +5,7 @@ import { combineReducers } from 'redux';
 import sucsReducer from './sucsReducer'
 
 const rootReducer = combineReducers({
-    sucsReducer
+    sucs: sucsReducer
 })
 
 export default rootReducer
