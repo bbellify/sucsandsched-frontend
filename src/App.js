@@ -11,6 +11,7 @@ import Home from './components/Home'
 import Account from './components/Account'
 import Login from './components/Login'
 import Logout from './components/Logout'
+import Register from './components/Register';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path={'/sched'} element={<SchedComponent/>}/>
         <Route path={'/login'} element={<Login />}/>
         <Route path={'/logout'} element={<Logout />}/>
+        <Route path={'/register'} element={<Register />}/>
         <Route path={'/'} element={<Home />}/>
 
         <Route path={'/account'} 

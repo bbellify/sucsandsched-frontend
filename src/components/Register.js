@@ -1,12 +1,11 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom'
-import { LinkContainer } from 'react-router-bootstrap'
+import { useNavigate } from 'react-router-dom'
 
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 
-function Login(props) {
+function Register(props) {
 
     const [formValues, setFormValues] = useState({ username: '', password: '' })
 
@@ -34,12 +33,12 @@ function Login(props) {
     })
 
     return (
-        <Container className='mt-4 text-center'>
+        <Container className='text-center mt-4 d-flex flex-column align-items-center'>
             <form 
+                className='w-50'
                 onSubmit={handleSubmit}
-                className='d-flex flex-column align-items-center'
             >
-                <div className='w-75 form-group'>
+                <div className='form-group'>
                     <h3>welcome back</h3>
                     <input 
                         type='text'
@@ -57,21 +56,16 @@ function Login(props) {
                         onChange={handleChange}
                     ></input>
                     <Button 
-                        className='w-100 w-md-50 my-1'
+                        className='w-50 my-1'
                         variant='light'
                         type='submit'
                     >
-                        login
+                        create account
                     </Button>
-                    <LinkContainer className='w-100' to='/register'>
-                        <Button variant='light'>
-                            need an account?
-                        </Button>
-                    </LinkContainer>
                 </div>
             </form>
         </Container>
     );
 }
 
-export default Login;
+export default Register;
