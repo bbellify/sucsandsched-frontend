@@ -14,7 +14,7 @@ function NavComponent(props) {
     
     const navigate = useNavigate()
 
-    const spanClick = (where) => {
+    const linkClick = (where) => {
         navigate(where)
     }
 
@@ -22,13 +22,12 @@ function NavComponent(props) {
 
     <Navbar bg="success" expand="false" className='py-0 my-0 sticky-top'>
         <Container className='d-flex px-lg-0' >
-            <Navbar.Brand className='p-0 mb-1'><img src={logo} alt='logo'/></Navbar.Brand>
+            <Navbar.Brand onClick={() => linkClick('/')} className='p-0 mb-1'><img src={logo} alt='logo'/></Navbar.Brand>
             
-            {/* figure out how to make sucs and sched links */}
             <h2 className='p-0 pt-1'>
-                <span onClick={() => spanClick('/sucs')}>sucs</span> 
+                <span onClick={() => linkClick('/sucs')}>sucs</span> 
                 <span> and </span>
-                <span onClick={() => spanClick('/sched')}>sched</span>
+                <span onClick={() => linkClick('/sched')}>sched</span>
             </h2>
             
             <Navbar.Toggle className='ms-auto p-0'/>

@@ -20,10 +20,7 @@ class SucsComponent extends React.Component {
     }
 
     componentDidMount() {
-        const { getSucs } = this.props
-        getSucs()
-        console.log('test')
-        
+        this.props.getSucs()
     }
 
     render() {
@@ -31,10 +28,11 @@ class SucsComponent extends React.Component {
         return (
             <Container>
 
-            <h2 className='mt-2'>SUCS</h2>
-            {this.props.sucs.map(day => {
+            {(this.props.isFetching || this.props.sucs.length === 0) && <h2 className='mt-2'>incoming...</h2>}
+            
+            {/* {this.props.sucs.map(day => {
                 return <p>test</p>
-            })}
+            })} */}
             
 
             <Table >
@@ -74,11 +72,10 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        getSucs
-    }
-}
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         getSucs
+//     }
+// }
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(SucsComponent)
+export default connect(mapStateToProps, { getSucs })(SucsComponent)

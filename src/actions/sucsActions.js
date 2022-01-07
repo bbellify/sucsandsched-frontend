@@ -20,6 +20,7 @@ export const fetchError = (error) => {
 export const getSucs = () => {
     return(dispatch) => {
         dispatch(fetchStart())
+        console.log('dispatch test')
 
         axios.get('https://sucsandsched.herokuapp.com/api/sucs')
             .then(res => {
