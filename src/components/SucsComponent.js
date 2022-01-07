@@ -45,9 +45,9 @@ class SucsComponent extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.props.sucs.map(day => {
+                        {this.props.sucs.map((day, index) => {
                             return (
-                                <tr>
+                                <tr key={day[index]}>
                                     <td className='fw-bold'>{day['sucs_id']}</td>
                                     <td>{day['situps'] ? day['situps'] : 'Rest'}</td>
                                     <td>{day['crunches'] ? day['crunches'] : 'Day'}</td>

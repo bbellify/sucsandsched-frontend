@@ -5,4 +5,8 @@
 1. Auth/login
     - Sucs - when logged in, users can see progress of all users and complete days for themselves 
 
-2. Close Offcanvas on link click
+2. Home Component:
+    - add ability to minimize cards on mobile so icon is hidden
+    - adjust spacing at md breakpoint, add a little space between cards
+
+3. Close Offcanvas on link click

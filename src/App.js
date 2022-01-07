@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom'
 
 import NavComponent from './components/NavComponent'
 import SucsComponent from './components/SucsComponent';
+import SchedComponent from './components/SchedComponent'
 import Home from './components/Home'
 import Logout from './components/Logout'
 
@@ -18,7 +19,8 @@ function App() {
       <NavComponent />
   
       <Routes>
-        <Route path={'/sucs'} element={<SucsComponent key={1}/>}/>
+        <Route path={'/sucs'} element={<SucsComponent/>}/>
+        <Route path={'/sched'} element={<SchedComponent/>}/>
         <Route path={'/logout'} element={<Logout />}/>
         <Route path={'/'} element={<Home />}/>
       </Routes>
