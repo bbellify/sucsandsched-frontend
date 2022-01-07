@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 
-import sched from '../assets/sched.jpeg'
+import sched from '../assets/sched.JPEG'
 
 class SchedComponent extends React.Component {
 
