@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 
-import sched from '../assets/sched.JPEG'
+import sched from '../assets/sched.jpeg'
 
 class SchedComponent extends React.Component {
 
@@ -20,7 +20,7 @@ class SchedComponent extends React.Component {
     render() {
 
         return (
-           <img source={sched} alt='sched'/>
+           <img src={sched} alt='sched' width='100%'/>
         )
     }
 
