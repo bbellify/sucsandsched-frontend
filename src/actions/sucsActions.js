@@ -21,9 +21,8 @@ export const getSucs = () => {
     return(dispatch) => {
         dispatch(fetchStart())
 
-        const url = process.env.BASE_URL || process.env.REACT_APP_BASE_URL
-        console.log(url)
-        axios.get(url)
+        // might have to add http:// to BASE_URL also
+        axios.get(process.env.BASE_URL || `http://${process.env.REACT_APP_BASE_URL}/sucs`)
             .then(res => {
                 dispatch(fetchSuccess(res.data))
             })
