@@ -7,7 +7,13 @@ import Button from 'react-bootstrap/Button'
 
 function Register(props) {
 
-    const [formValues, setFormValues] = useState({ username: '', password: '' })
+    const initialValues = {
+        username: '',
+        first_name: '',
+        password: ''
+    }
+
+    const [formValues, setFormValues] = useState(initialValues)
 
     const navigate = useNavigate()
 
@@ -33,14 +39,15 @@ function Register(props) {
     })
 
     return (
-        <Container className='text-center mt-4 d-flex flex-column align-items-center'>
+        <Container className='text-center mt-4'>
             <form 
-                className='w-50'
+                className='d-flex flex-column align-items-center'
                 onSubmit={handleSubmit}
             >
-                <div className='form-group'>
-                    <h3>welcome back</h3>
+                <div className='form-group w-75'>
+                    <h3>get registered:</h3>
                     <input 
+                        name='username'
                         type='text'
                         placeholder='username'
                         className='form-control my-1'
@@ -48,6 +55,15 @@ function Register(props) {
                         onChange={handleChange}
                     ></input>
                     <input 
+                        name='password'
+                        type='text'
+                        placeholder='first name'
+                        className='form-control my-1'
+                        value={formValues.password}
+                        onChange={handleChange}
+                    ></input>
+                    <input 
+                        name='password'
                         // remove comment below when live
                         // type='password'
                         placeholder='password'
@@ -56,7 +72,7 @@ function Register(props) {
                         onChange={handleChange}
                     ></input>
                     <Button 
-                        className='w-50 my-1'
+                        className='w-100 my-1'
                         variant='light'
                         type='submit'
                     >

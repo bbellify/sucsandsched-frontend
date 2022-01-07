@@ -41,7 +41,8 @@ function Login(props) {
             >
                 <div className='w-75 form-group'>
                     <h3>welcome back</h3>
-                    <input 
+                    <input
+                        name='username'
                         type='text'
                         placeholder='username'
                         className='form-control my-1'
@@ -49,6 +50,7 @@ function Login(props) {
                         onChange={handleChange}
                     ></input>
                     <input 
+                        name='password'
                         // remove comment below when live
                         // type='password'
                         placeholder='password'
