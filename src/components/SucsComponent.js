@@ -16,6 +16,11 @@ class SucsComponent extends React.Component {
         console.log('click')
     }
 
+
+    // check local storage, if token available send axioswithauth
+    // if not available, just send axios
+    // if axioswithauth fails (backend), just send same response as unauth
+
     componentDidMount() {
         this.props.getSucs()
     }
