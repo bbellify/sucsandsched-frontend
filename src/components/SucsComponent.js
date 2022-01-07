@@ -23,13 +23,18 @@ class SucsComponent extends React.Component {
         const { getSucs } = this.props
         getSucs()
         console.log('test')
+        
     }
 
     render() {
+
         return (
             <Container>
 
             <h2 className='mt-2'>SUCS</h2>
+            {this.props.sucs.map(day => {
+                return <p>test</p>
+            })}
             
 
             <Table >
@@ -64,8 +69,8 @@ class SucsComponent extends React.Component {
 const mapStateToProps = state => {
     return {
         sucs: state.sucs.sucs,
-        isFetching: state.sucs.sucs.isFetching,
-        error: state.sucs.sucs.error
+        isFetching: state.sucs.isFetching,
+        error: state.sucs.error
     }
 }
 
