@@ -24,6 +24,8 @@ function Register(props) {
         })
     }
 
+    // redirect back to log in, maybe display name or something? 
+    
     const handleSubmit = e => {
         e.preventDefault()
         console.log('submit')
