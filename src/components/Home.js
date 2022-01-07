@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import river from '../assets/river.png'
 import mountain from '../assets/mountain.png'
@@ -11,14 +11,39 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import ListGroupItem from 'react-bootstrap/ListGroupItem'
 
 
+class Home extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            card1: true,
+            card2: true,
+            card3: true,
+            card4: true
+        }
+    }
 
-function Home() {
-    return (
-        <Container className='px-md-0'>
+    toggleDisplay = (card) => {
+        let display = this.state
+
+        display[card] = !display[card]
+        this.setState(display)
+        console.log(this.state)
+    }
+
+    render() {
+        return (
+            <Container className='px-md-0'>
             <h2 className='my-3'>Upcoming Races:</h2>
             <Container className='px-0 d-md-flex flex-wrap' >
-                <Card className='shadow-sm mb-4 col-md-4 col-lg-4'>
-                    <Card.Img variant="top" src={river} className='p-4 pb-2' />
+                <Card className='shadow-sm mb-4 col-md-4 col-lg-4 position-relative'>
+                    <div className='position-absolute top-0 end-0'>
+                        <p 
+                            className='fw-bolder text-dark mx-2'
+                            onClick={(()=>{this.toggleDisplay('card1')})}
+                            >{this.state.card1 ? '-' : '+'}</p>
+                    </div>
+                    {this.state.card1 && 
+                    <Card.Img variant="top" src={river} className='p-4 pb-2' />}
                     <Card.Body className='my-0'>
                         <Card.Title>Silver Falls Trail Challenge</Card.Title>
                         <Card.Subtitle className='text-muted py-1'>half marathon</Card.Subtitle>
@@ -27,8 +52,15 @@ function Home() {
                     </Card.Body>
                 </Card>
 
-                <Card className='shadow-sm mb-4 col-md-4 col-lg-4'>
-                    <Card.Img variant="top" src={beer} className='p-4 pb-2' />
+                <Card className='shadow-sm mb-4 col-md-4 col-lg-4 position-relative'>
+                    <div className='position-absolute top-0 end-0'>
+                        <p 
+                            className='fw-bolder text-dark mx-2'
+                            onClick={(()=>{this.toggleDisplay('card2')})}
+                            >{this.state.card2 ? '-' : '+'}</p>
+                    </div>
+                    {this.state.card2 && 
+                    <Card.Img variant="top" src={beer} className='p-4 pb-2' /> }
                     <Card.Body className='my-0'>
                         <Card.Title>Bend Beer Run</Card.Title>
                         <Card.Subtitle className='text-muted py-1'>5k - with beer</Card.Subtitle>
@@ -37,8 +69,15 @@ function Home() {
                     </Card.Body>
                 </Card>
 
-                <Card className='shadow-sm mb-4 col-md-4 col-lg-4'>
-                    <Card.Img variant="top" src={mountain} className='p-4 pb-2' />
+                <Card className='shadow-sm mb-4 col-md-4 col-lg-4 position-relative'>
+                    <div className='position-absolute top-0 end-0'>
+                        <p 
+                            className='fw-bolder text-dark mx-2'
+                            onClick={(()=>{this.toggleDisplay('card3')})}
+                            >{this.state.card3 ? '-' : '+'}</p>
+                    </div>
+                    {this.state.card3 && 
+                    <Card.Img variant="top" src={mountain} className='p-4 pb-2' /> }
                     <Card.Body className='my-0'>
                         <Card.Title>Three Sisters Skyline</Card.Title>
                         <Card.Subtitle className='text-muted py-1'>50k</Card.Subtitle>
@@ -48,7 +87,14 @@ function Home() {
                 </Card>
 
                 <Card className='shadow-sm mb-4 col-md-4 col-lg-4'>
-                    <Card.Img variant="top" src={western} className='p-4 mb-1' />
+                    <div className='position-absolute top-0 end-0'>
+                        <p 
+                            className='fw-bolder text-dark mx-2'
+                            onClick={(()=>{this.toggleDisplay('card4')})}
+                            >{this.state.card4 ? '-' : '+'}</p>
+                    </div>
+                    {this.state.card4 && 
+                    <Card.Img variant="top" src={western} className='p-4 mb-1' /> }
                     <Card.Body className='my-0 mt-2'>
                         <Card.Title>Western States</Card.Title>
                         <Card.Subtitle className='text-muted py-1'>100m</Card.Subtitle>
@@ -73,7 +119,8 @@ function Home() {
                 </Card>
             
         </Container>
-    );
+        )
+    }
 }
 
 export default Home;
