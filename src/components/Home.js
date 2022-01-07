@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import river from '../assets/river.png'
 import mountain from '../assets/mountain.png'
