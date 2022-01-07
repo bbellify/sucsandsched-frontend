@@ -6,9 +6,6 @@ import Table from 'react-bootstrap/Table'
 
 import { getSucs } from '../actions/sucsActions'
 
-import sucsImg from '../assets/sucs.jpg'
-
-
 class SucsComponent extends React.Component {
 
     handleChanges = e => {
@@ -21,7 +18,6 @@ class SucsComponent extends React.Component {
 
     componentDidMount() {
         this.props.getSucs()
-        console.log(this.props.sucs)
     }
 
     render() {
@@ -30,38 +26,37 @@ class SucsComponent extends React.Component {
             <Container>
 
             {(this.props.isFetching || this.props.sucs.length === 0) && <h2 className='mt-2'>incoming...</h2>}
-            {(this.props.sucs && <Table >
-                <thead>
-                    <tr>
-                        <th>
-                            Day
-                        </th>
-                        <th>
-                            Situps
-                        </th>
-                        <th>
-                            Crunches
-                        </th>
-                        <th>
-                            Squats
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {this.props.sucs.map(day => {
-                        return (
-                            <tr>
-                                <td>{day['sucs_id']}</td>
-                                <td>{day['situps']}</td>
-                                <td>{day['crunches']}</td>
-                                <td>{day['squats']}</td>
-                            </tr>
-                        )
-                    })}
-                </tbody>
-            </Table>)}
-
-            <img src={sucsImg} alt='sucs'/>
+            {(this.props.sucs && 
+                <Table className='my-3 text-center' striped bordered>
+                    <thead>
+                        <tr>
+                            <th>
+                                Day
+                            </th>
+                            <th>
+                                Situps
+                            </th>
+                            <th>
+                                Crunches
+                            </th>
+                            <th>
+                                Squats
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.props.sucs.map(day => {
+                            return (
+                                <tr>
+                                    <td className='fw-bold'>{day['sucs_id']}</td>
+                                    <td>{day['situps'] ? day['situps'] : 'Rest'}</td>
+                                    <td>{day['crunches'] ? day['crunches'] : 'Day'}</td>
+                                    <td>{day['squats'] ? day['crunches'] : ''}</td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </Table>)}
         </Container>
         )
     }
