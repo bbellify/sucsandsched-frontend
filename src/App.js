@@ -2,7 +2,7 @@ import React from 'react'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, Navigate } from 'react-router-dom'
 
 import NavComponent from './components/NavComponent'
 import SucsComponent from './components/SucsComponent';
@@ -11,9 +11,6 @@ import Home from './components/Home'
 import Account from './components/Account'
 import Login from './components/Login'
 import Logout from './components/Logout'
-
-import RequireAuth from './utils/RequireAuth'
-
 
 function App() {
   return (
@@ -38,6 +35,11 @@ function App() {
 
     </React.Fragment>
   );
+}
+
+function RequireAuth({ children, redirectTo }) {
+  let isAuthenticated = localStorage.getItem('token');
+  return isAuthenticated ? children : <Navigate to={redirectTo} />
 }
 
 export default App;
