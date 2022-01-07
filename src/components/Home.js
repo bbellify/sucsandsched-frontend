@@ -24,10 +24,8 @@ class Home extends React.Component {
 
     toggleDisplay = (card) => {
         let display = this.state
-
         display[card] = !display[card]
         this.setState(display)
-        console.log(this.state)
     }
 
     render() {
