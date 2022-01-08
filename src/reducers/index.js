@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 
 // combine reducers here
 import sucsReducer from './sucsReducer'
-import userReducer from './usersReducer';
+import userReducer from './userReducer';
 
 const rootReducer = combineReducers({
     sucs: sucsReducer,

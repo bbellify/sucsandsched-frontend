@@ -10,7 +10,8 @@ import {
 const initialState = {
     username: '',
     first_name: '',
-    user: {}
+    user: {},
+    isFetching: false
 }
 
 const userReducer = (state = initialState, action) => {

@@ -3,7 +3,7 @@ import axios from 'axios'
 import { LinkContainer } from 'react-router-bootstrap'
 import { useNavigate } from 'react-router-dom'
 
-import { useDispatch } from 'react-redux';
+import { connect } from 'react-redux'
 
 import { setUsername, setFirstName } from '../actions/userActions'
 
@@ -18,7 +18,7 @@ function Login(props) {
     // error states
     const [formValues, setFormValues] = useState({ username: '', password: '' })
 
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
 
     const handleChange = e => {
         setFormValues({
@@ -37,8 +37,8 @@ function Login(props) {
             , formValues)
             .then(res => {
                 localStorage.setItem('token', res.data.token)
-                dispatch(setUsername(res.data.username))
-                dispatch(setFirstName(res.data.first_name))
+                props.setUsername(res.data.username)
+                props.setFirstName(res.data.first_name)
                 navigate('/my-account')
                 // for future reference - navigate() appears to have a problem with template literals, better to just do string concatenation 
             })
@@ -92,4 +92,5 @@ function Login(props) {
     );
 }
 
-export default Login;
+
+export default connect(null, { setUsername, setFirstName })(Login);

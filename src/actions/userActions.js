@@ -30,12 +30,11 @@ export const getUser = (username) => {
     return(dispatch) => {
         dispatch(fetchStart())
 
-        console.log('in action')
         axiosWithAuth()
             .get(`/account/${username}`)
             .then(res => {
                 console.log(res.data)
-                //dispatch(fetchSuccess(res.data))
+                dispatch(fetchSuccess(res.data))
             })
             .catch(err => {
                 dispatch(fetchError(err))
