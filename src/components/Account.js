@@ -9,7 +9,15 @@ class Account extends React.Component {
 
     componentDidMount() {
         const uname = localStorage.getItem('username')
-        this.props.getUser(this.props.username ? this.props.username : uname)
+        if (!uname && ! this.props.username) {
+            
+            console.log('broken')
+            // figure out this edge case.. modal could be nice
+
+        } else {
+            this.props.getUser(this.props.username ? this.props.username : uname)
+        }
+
     }
 
     componentDidUpdate(prevProps) {
@@ -42,3 +50,4 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, { getUser })(Account);
+
