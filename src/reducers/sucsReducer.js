@@ -31,7 +31,7 @@ const sucsReducer = (state = initialState, action) => {
             return({
                 ...state,
                 isFetching: false,
-                error: `no sucs for you (jk, error: ${action.payload})`
+                error: `${action.payload}`
             })
         default:
             return state;

@@ -38,7 +38,7 @@ function Login(props) {
             .then(res => {
                 localStorage.setItem('token', res.data.token)
                 dispatch(setUsername(res.data.username))
-                navigate('/' + props.username + '/account')
+                navigate('/my-account')
             })
             .catch()
     }

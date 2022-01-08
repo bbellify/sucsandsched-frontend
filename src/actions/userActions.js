@@ -10,7 +10,7 @@ export const SET_USERNAME = 'SET_USERNAME'
 export const fetchStart = () => {
     return({type:FETCH_START})
 }
-
+ 
 export const fetchSuccess = (comic) => {
     return({type:FETCH_SUCCESS, payload: comic})
 }
@@ -25,7 +25,7 @@ export const setUsername = (username) => {
 
 export const getUser = () => {
     return(dispatch) => {
-        dispatch(fetchStart())
+        // dispatch(fetchStart())
 
         console.log('in action')
         // axios.create()

@@ -23,8 +23,10 @@ export const getSucs = () => {
         dispatch(fetchStart())
 
         axios.get(
-            // toggle `${http://localhost:9000/` for development
-            `${BASE_URL}/api/sucs`
+            // toggle for development
+            'http://localhost:9000/api/sucs'
+            
+            // `${BASE_URL}/api/sucs`
             )
             .then(res => {
                 dispatch(fetchSuccess(res.data))

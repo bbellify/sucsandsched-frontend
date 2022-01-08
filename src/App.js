@@ -26,7 +26,7 @@ function App() {
         <Route path={'/register'} element={<Register />}/>
         <Route path={'/'} element={<Home />}/>
 
-        <Route path={'/:username/account'} 
+        <Route path={'/my-account'} 
           element={
             <RequireAuth redirectTo='/login'>
               <Account />
@@ -43,5 +43,11 @@ function RequireAuth({ children, redirectTo }) {
   let isAuthenticated = localStorage.getItem('token');
   return isAuthenticated ? children : <Navigate to={redirectTo} />
 }
+
+// const mapStateToProps = state => {
+//   return ({
+//     username: state.user.username
+//   })
+// }
 
 export default App;

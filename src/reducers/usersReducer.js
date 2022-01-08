@@ -7,7 +7,7 @@ import {
 
 
 const initialState = {
-    username: 'test in reducer',
+    username: '',
     user: {}
 }
 

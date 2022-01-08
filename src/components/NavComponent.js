@@ -43,7 +43,7 @@ function NavComponent(props) {
                         <Nav.Link>Home</Nav.Link>
                     </LinkContainer>
 
-                    <LinkContainer to='/:username/account'>
+                    <LinkContainer to='/my-account'>
                         <Nav.Link>Account</Nav.Link>
                     </LinkContainer>
                     

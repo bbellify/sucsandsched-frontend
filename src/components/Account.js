@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import { getUser } from '../actions/userActions'
 
+import Container from 'react-bootstrap/Container'
+
 
 //axiosWithAuth will go here to populate this component
 
@@ -24,11 +26,11 @@ class Account extends React.Component {
 
     render() {
         return (
-            <div>
-                <h2>Hey, {this.props.username}</h2>
+            <Container>
+                <h2>welcome back {this.props.username}</h2>
                 <h3>tracking sucs: false</h3>
                 <h3>upcoming races:</h3>
-            </div>
+            </Container>
         );
     }
 }

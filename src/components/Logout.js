@@ -15,7 +15,7 @@ function Logout(props) {
     useEffect(()=>{
         setTimeout(() => {
             navigate('/')
-        }, 3000)
+        }, 2500)
     })
 
     return (
