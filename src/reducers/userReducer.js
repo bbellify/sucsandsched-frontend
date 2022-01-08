@@ -27,8 +27,6 @@ const userReducer = (state = initialState, action) => {
                 first_name: action.payload
             })
         case(GET_SUCCESS):
-            console.log('in reducer')
-            console.log(action.payload)
             return({
                 ...state,
                 user: action.payload,

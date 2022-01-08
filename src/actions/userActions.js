@@ -11,7 +11,6 @@ export const getStart = () => {
 }
  
 export const getSuccess = (user) => {
-    console.log('in get success')
     return({type:GET_SUCCESS, payload: user})
 }
 
@@ -34,8 +33,6 @@ export const getUser = (username) => {
         axiosWithAuth()
             .get(`/account/${username}`)
             .then(res => {
-                console.log('success in action')
-                console.log(res.data)
                 dispatch(getSuccess(res.data))
             })
             .catch(err => {
