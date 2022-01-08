@@ -27,9 +27,12 @@ class Account extends React.Component {
     render() {
         return (
             <Container>
-                <h2>welcome back {this.props.username}</h2>
-                <h3>tracking sucs: false</h3>
-                <h3>upcoming races:</h3>
+                <h2>welcome back {this.props.first_name}</h2>
+                <div>
+                    <h3>tracking sucs: false</h3>
+                    <h3>upcoming races:</h3>
+                    <h4>all above in conditional div on whether user has been got</h4>
+                </div>
             </Container>
         );
     }
@@ -38,7 +41,8 @@ class Account extends React.Component {
 const mapStateToProps = state => {
     return {
         user: state.user.user,
-        username: state.user.username
+        username: state.user.username,
+        first_name: state.user.first_name
     }
 }
 

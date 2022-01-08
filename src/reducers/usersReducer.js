@@ -3,11 +3,13 @@ import {
     FETCH_SUCCESS,
     FETCH_ERROR,
     SET_USERNAME,
+    SET_FIRST_NAME,
 } from '../actions/userActions'
 
 
 const initialState = {
     username: '',
+    first_name: '',
     user: {}
 }
 
@@ -35,6 +37,11 @@ const userReducer = (state = initialState, action) => {
             return({
                 ...state,
                 username: action.payload
+            })
+        case(SET_FIRST_NAME):
+            return({
+                ...state,
+                first_name: action.payload
             })
         default:
             return state;

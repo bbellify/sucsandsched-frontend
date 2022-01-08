@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { useDispatch } from 'react-redux';
 
-import { setUsername } from '../actions/userActions'
+import { setUsername, setFirstName } from '../actions/userActions'
 
 import { BASE_URL } from '../constants/index'
 
@@ -38,6 +38,7 @@ function Login(props) {
             .then(res => {
                 localStorage.setItem('token', res.data.token)
                 dispatch(setUsername(res.data.username))
+                dispatch(setFirstName(res.data.first_name))
                 navigate('/my-account')
                 // for future reference - navigate() appears to have a problem with template literals, better to just do string concatenation 
             })
