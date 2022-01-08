@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
+import { useNavigate } from 'react-router-dom'
+
+import { connect, useDispatch } from 'react-redux';
+
+import { setUsername } from '../actions/userActions'
 
 import { BASE_URL } from '../constants/index'
 
@@ -10,9 +14,11 @@ import Button from 'react-bootstrap/Button'
 
 function Login(props) {
 
+    
+    // error states
     const [formValues, setFormValues] = useState({ username: '', password: '' })
 
-    const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const handleChange = e => {
         setFormValues({
@@ -21,24 +27,21 @@ function Login(props) {
         })
     }
 
+    const navigate = useNavigate()
+
     const handleSubmit = e => {
         e.preventDefault()
-        console.log('submit')
-
-        axios.post(`${BASE_URL}/auth/login`, formValues)
+        axios.post(
+            // `${BASE_URL}/auth/login`
+            'http://localhost:9000/auth/login'
+            , formValues)
             .then(res => {
-                console.log(res)
                 localStorage.setItem('token', res.data.token)
-                navigate('/account')
-                // going to have to dispatch a users action I think
+                dispatch(setUsername(res.data.username))
+                navigate('/' + props.username + '/account')
             })
             .catch()
     }
-
-    //temporary - remove this 
-    useEffect(() => {
-        localStorage.setItem('token', 420)
-    })
 
     return (
         <Container className='mt-4 d-flex flex-column align-items-center col-md-6'>
@@ -58,7 +61,6 @@ function Login(props) {
                 ></input>
                 <input 
                     name='password'
-                    remove comment below when live
                     type='password'
                     placeholder='password'
                     className='form-control my-1'
@@ -85,4 +87,9 @@ function Login(props) {
     );
 }
 
-export default Login;
+const mapStateToProps = state => {
+    return({
+        username: state.user.username
+    })
+}
+export default connect(mapStateToProps)(Login);

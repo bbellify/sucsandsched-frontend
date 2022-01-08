@@ -26,7 +26,7 @@ function App() {
         <Route path={'/register'} element={<Register />}/>
         <Route path={'/'} element={<Home />}/>
 
-        <Route path={'/account'} 
+        <Route path={'/:username/account'} 
           element={
             <RequireAuth redirectTo='/login'>
               <Account />

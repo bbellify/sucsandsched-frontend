@@ -2,18 +2,18 @@ import {
     FETCH_START,
     FETCH_SUCCESS,
     FETCH_ERROR,
-} from './../actions/sucsActions'
+    SET_USERNAME,
+} from '../actions/userActions'
 
 
 const initialState = {
-    sucs: [],
-    isFetching: false,
-    error: ''
+    username: 'test in reducer',
+    user: {}
 }
 
 
 
-const sucsReducer = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
     switch(action.type) {
         case(FETCH_START):
             return({
@@ -31,11 +31,16 @@ const sucsReducer = (state = initialState, action) => {
             return({
                 ...state,
                 isFetching: false,
-                error: `no sucs for you (jk, error: ${action.payload})`
+                error: `${action.payload})`
+            })
+        case(SET_USERNAME):
+            return({
+                ...state,
+                username: action.payload
             })
         default:
             return state;
     }
 }
 
-export default sucsReducer
+export default userReducer
