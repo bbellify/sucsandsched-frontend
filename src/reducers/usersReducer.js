@@ -11,8 +11,6 @@ const initialState = {
     user: {}
 }
 
-
-
 const userReducer = (state = initialState, action) => {
     switch(action.type) {
         case(FETCH_START):
@@ -23,7 +21,7 @@ const userReducer = (state = initialState, action) => {
         case(FETCH_SUCCESS):
             return({
                 ...state,
-                sucs: action.payload,
+                user: action.payload,
                 isFetching: false,
                 error: ''
             })
@@ -31,7 +29,7 @@ const userReducer = (state = initialState, action) => {
             return({
                 ...state,
                 isFetching: false,
-                error: `${action.payload})`
+                error: `${action.payload}`
             })
         case(SET_USERNAME):
             return({

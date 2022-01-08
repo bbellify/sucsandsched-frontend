@@ -44,10 +44,4 @@ function RequireAuth({ children, redirectTo }) {
   return isAuthenticated ? children : <Navigate to={redirectTo} />
 }
 
-// const mapStateToProps = state => {
-//   return ({
-//     username: state.user.username
-//   })
-// }
-
 export default App;

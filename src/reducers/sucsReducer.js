@@ -4,14 +4,11 @@ import {
     FETCH_ERROR,
 } from './../actions/sucsActions'
 
-
 const initialState = {
     sucs: [],
     isFetching: false,
     error: ''
 }
-
-
 
 const sucsReducer = (state = initialState, action) => {
     switch(action.type) {

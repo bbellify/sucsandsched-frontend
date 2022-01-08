@@ -25,7 +25,6 @@ export const getSucs = () => {
         axios.get(
             // toggle for development
             'http://localhost:9000/api/sucs'
-            
             // `${BASE_URL}/api/sucs`
             )
             .then(res => {

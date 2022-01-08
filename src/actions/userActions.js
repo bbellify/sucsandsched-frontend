@@ -27,6 +27,7 @@ export const getUser = () => {
     return(dispatch) => {
         // dispatch(fetchStart())
 
+        
         console.log('in action')
         // axios.create()
 

@@ -3,7 +3,7 @@ import axios from 'axios'
 import { LinkContainer } from 'react-router-bootstrap'
 import { useNavigate } from 'react-router-dom'
 
-import { connect, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { setUsername } from '../actions/userActions'
 
@@ -39,6 +39,7 @@ function Login(props) {
                 localStorage.setItem('token', res.data.token)
                 dispatch(setUsername(res.data.username))
                 navigate('/my-account')
+                // for future reference - navigate() appears to have a problem with template literals, better to just do string concatenation 
             })
             .catch()
     }
@@ -68,7 +69,10 @@ function Login(props) {
                     onChange={handleChange}
                 ></input>
                 
-                {/* alert goes here */}
+                {/* alerts goes here
+                    one for incorrect login
+                    one for form validation
+                */}
 
                 <Button 
                     className='w-100 w-md-50 my-1'
@@ -87,9 +91,4 @@ function Login(props) {
     );
 }
 
-const mapStateToProps = state => {
-    return({
-        username: state.user.username
-    })
-}
-export default connect(mapStateToProps)(Login);
+export default Login;
