@@ -1,5 +1,3 @@
-import axios from 'axios'
-
 import axiosWithAuth from '../utils/axiosWithAuth'
 
 export const FETCH_START = 'FETCH_START'
@@ -36,13 +34,10 @@ export const getUser = (username) => {
         axiosWithAuth()
             .get(`/account/${username}`)
             .then(res => {
-                console.log(username)
-                console.log(res)
+                console.log(res.data)
                 //dispatch(fetchSuccess(res.data))
             })
             .catch(err => {
-                console.log(username)
-                console.log('in catch')
                 dispatch(fetchError(err))
             })
     }
