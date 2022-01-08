@@ -6,32 +6,23 @@ import Table from 'react-bootstrap/Table'
 
 import { getSucs } from '../actions/sucsActions'
 
-class SucsComponent extends React.Component {
+import { useEffect } from 'react'
 
-    handleChanges = e => {
-        console.log(e.target.value)
-    }
+function SucsComponent(props) {
 
-    handleCLick = () => {
-        console.log('click')
-    }
+    useEffect(() => {
+        console.log(`state before use effect: ${props.test}`)
+        props.getSucs()
+        console.log(`state after use effect: ${props.test}`)
+    }, [])
 
 
-    // check local storage, if token available send axioswithauth
-    // if not available, just send axios
-    // if axioswithauth fails (backend), just send same response as unauth
-
-    componentDidMount() {
-        this.props.getSucs()
-    }
-
-    render() {
-
-        return (
-            <Container>
-
-            {(this.props.isFetching || this.props.sucs.length === 0) && <h2 className='mt-2'>incoming...</h2>}
-            {(this.props.sucs && 
+    return (
+        <Container>
+            <h3>hey</h3>
+{/* 
+            {(props.isFetching || props.sucs.length === 0) && <h2 className='mt-2'>incoming...</h2>}
+            {(props.sucs && 
                 <Table className='my-3 text-center' striped bordered>
                     <thead>
                         <tr>
@@ -50,7 +41,7 @@ class SucsComponent extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.props.sucs.map((day, index) => {
+                        {props.sucs.map((day, index) => {
                             return (
                                 <tr key={day[index]}>
                                     <td className='fw-bold'>{day['sucs_id']}</td>
@@ -61,18 +52,79 @@ class SucsComponent extends React.Component {
                             )
                         })}
                     </tbody>
-                </Table>)}
-        </Container>
-        )
-    }
+                </Table>)} */}
+            </Container>
 
-}
+)}
 
-const mapStateToProps = state => {
+
+// class SucsComponent extends React.Component {
+
+//     handleChanges = e => {
+//         console.log(e.target.value)
+//     }
+
+//     handleClick = () => {
+//         console.log('click')
+//     }
+
+
+
+
+//     // check local storage, if token available send axioswithauth
+//     // if not available, just send axios
+//     // if axioswithauth fails (backend), just send same response as unauth
+
+//     componentDidMount() {
+//         this.props.getSucs()
+//     }
+
+//     render() {
+
+//         return (
+//             <Container>
+
+//                 {(this.props.isFetching || this.props.sucs.length === 0) && <h2 className='mt-2'>incoming...</h2>}
+//                 {(this.props.sucs && 
+//                     <Table className='my-3 text-center' striped bordered>
+//                         <thead>
+//                             <tr>
+//                                 <th>
+//                                     Day
+//                                 </th>
+//                                 <th>
+//                                     Situps
+//                                 </th>
+//                                 <th>
+//                                     Crunches
+//                                 </th>
+//                                 <th>
+//                                     Squats
+//                                 </th>
+//                             </tr>
+//                         </thead>
+//                         <tbody>
+//                             {this.props.sucs.map((day, index) => {
+//                                 return (
+//                                     <tr key={day[index]}>
+//                                         <td className='fw-bold'>{day['sucs_id']}</td>
+//                                         <td>{day['situps'] ? day['situps'] : 'Rest'}</td>
+//                                         <td>{day['crunches'] ? day['crunches'] : 'Day'}</td>
+//                                         <td>{day['squats'] ? day['crunches'] : ''}</td>
+//                                     </tr>
+//                                 )
+//                             })}
+//                         </tbody>
+//                     </Table>)}
+//                 </Container>
+//         )
+//     }
+
+// }
+
+function mapStateToProps(state) {
     return {
-        sucs: state.sucs.sucs,
-        isFetching: state.sucs.isFetching,
-        error: state.sucs.error
+        sucs: state.sucs.sucs.sucs
     }
 }
 

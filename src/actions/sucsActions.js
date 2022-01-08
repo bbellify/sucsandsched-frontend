@@ -10,8 +10,9 @@ export const fetchStart = () => {
     return({type:FETCH_START})
 }
 
-export const fetchSuccess = (comic) => {
-    return({type:FETCH_SUCCESS, payload: comic})
+export const fetchSuccess = (sucs) => {
+    console.log('in fetch success')
+    return({type:FETCH_SUCCESS, payload: sucs})
 }
 
 export const fetchError = (error) => {
@@ -20,6 +21,7 @@ export const fetchError = (error) => {
 
 export const getSucs = () => {
     return(dispatch) => {
+        console.log('in getSucs')
         dispatch(fetchStart())
 
         axios.get(
@@ -28,6 +30,7 @@ export const getSucs = () => {
             // `${BASE_URL}/api/sucs`
             )
             .then(res => {
+                console.log('in getSucs then')
                 dispatch(fetchSuccess(res.data))
             })
             .catch(err => {
