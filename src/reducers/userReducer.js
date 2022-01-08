@@ -1,9 +1,9 @@
 import { 
-    FETCH_START,
-    FETCH_SUCCESS,
-    FETCH_ERROR,
     SET_USERNAME,
     SET_FIRST_NAME,
+    GET_SUCCESS,
+    GET_START,
+    GET_ERROR
 } from '../actions/userActions'
 
 
@@ -16,24 +16,6 @@ const initialState = {
 
 const userReducer = (state = initialState, action) => {
     switch(action.type) {
-        case(FETCH_START):
-            return({
-                ...state,
-                isFetching: true
-            })
-        case(FETCH_SUCCESS):
-            return({
-                ...state,
-                user: action.payload,
-                isFetching: false,
-                error: ''
-            })
-        case(FETCH_ERROR):
-            return({
-                ...state,
-                isFetching: false,
-                error: `${action.payload}`
-            })
         case(SET_USERNAME):
             return({
                 ...state,
@@ -43,6 +25,24 @@ const userReducer = (state = initialState, action) => {
             return({
                 ...state,
                 first_name: action.payload
+            })
+        case(GET_SUCCESS):
+            console.log('in reducer')
+            console.log(action.payload)
+            return({
+                ...state,
+                user: action.payload,
+                isFetching: false
+            })
+        case(GET_START):
+            return({
+                ...state,
+                isFetching: true
+            })
+        case(GET_ERROR):
+            return({
+                ...state,
+                isFetching: false
             })
         default:
             return state;

@@ -10,19 +10,18 @@ import { useEffect } from 'react'
 
 function SucsComponent(props) {
 
-    useEffect(() => {
-        console.log(`state before use effect: ${props.test}`)
-        props.getSucs()
-        console.log(`state after use effect: ${props.test}`)
-    }, [])
+    const { sucs } = props
 
+    useEffect(() => {
+        props.getSucs()
+    }, [])
 
     return (
         <Container>
-            <h3>hey</h3>
-{/* 
+            <h4 className='mt-3'>sucs</h4>
             {(props.isFetching || props.sucs.length === 0) && <h2 className='mt-2'>incoming...</h2>}
-            {(props.sucs && 
+
+            {(sucs && 
                 <Table className='my-3 text-center' striped bordered>
                     <thead>
                         <tr>
@@ -40,10 +39,11 @@ function SucsComponent(props) {
                             </th>
                         </tr>
                     </thead>
+               
                     <tbody>
-                        {props.sucs.map((day, index) => {
+                        {sucs.map(day => {
                             return (
-                                <tr key={day[index]}>
+                                <tr>
                                     <td className='fw-bold'>{day['sucs_id']}</td>
                                     <td>{day['situps'] ? day['situps'] : 'Rest'}</td>
                                     <td>{day['crunches'] ? day['crunches'] : 'Day'}</td>
@@ -52,79 +52,15 @@ function SucsComponent(props) {
                             )
                         })}
                     </tbody>
-                </Table>)} */}
-            </Container>
+                </Table>
+            )}
+        </Container>
 
 )}
 
-
-// class SucsComponent extends React.Component {
-
-//     handleChanges = e => {
-//         console.log(e.target.value)
-//     }
-
-//     handleClick = () => {
-//         console.log('click')
-//     }
-
-
-
-
-//     // check local storage, if token available send axioswithauth
-//     // if not available, just send axios
-//     // if axioswithauth fails (backend), just send same response as unauth
-
-//     componentDidMount() {
-//         this.props.getSucs()
-//     }
-
-//     render() {
-
-//         return (
-//             <Container>
-
-//                 {(this.props.isFetching || this.props.sucs.length === 0) && <h2 className='mt-2'>incoming...</h2>}
-//                 {(this.props.sucs && 
-//                     <Table className='my-3 text-center' striped bordered>
-//                         <thead>
-//                             <tr>
-//                                 <th>
-//                                     Day
-//                                 </th>
-//                                 <th>
-//                                     Situps
-//                                 </th>
-//                                 <th>
-//                                     Crunches
-//                                 </th>
-//                                 <th>
-//                                     Squats
-//                                 </th>
-//                             </tr>
-//                         </thead>
-//                         <tbody>
-//                             {this.props.sucs.map((day, index) => {
-//                                 return (
-//                                     <tr key={day[index]}>
-//                                         <td className='fw-bold'>{day['sucs_id']}</td>
-//                                         <td>{day['situps'] ? day['situps'] : 'Rest'}</td>
-//                                         <td>{day['crunches'] ? day['crunches'] : 'Day'}</td>
-//                                         <td>{day['squats'] ? day['crunches'] : ''}</td>
-//                                     </tr>
-//                                 )
-//                             })}
-//                         </tbody>
-//                     </Table>)}
-//                 </Container>
-//         )
-//     }
-
-// }
-
-function mapStateToProps(state) {
+const mapStateToProps = state => {
     return {
-        sucs: state.sucs.sucs.sucs
+        sucs: state.sucs.sucs
     }
 }
 

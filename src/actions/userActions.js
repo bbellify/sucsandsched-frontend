@@ -1,21 +1,22 @@
 import axiosWithAuth from '../utils/axiosWithAuth'
 
-export const FETCH_START = 'FETCH_START'
-export const FETCH_SUCCESS = 'FETCH_SUCCESS'
-export const FETCH_ERROR = 'FETCH_ERROR'
+export const GET_START = 'GET_START'
+export const GET_SUCCESS = 'GET_SUCCESS'
+export const GET_ERROR = 'GET_ERROR'
 export const SET_USERNAME = 'SET_USERNAME'
 export const SET_FIRST_NAME = 'SET_FIRST_NAME'
 
-export const fetchStart = () => {
-    return({type:FETCH_START})
+export const getStart = () => {
+    return({type:GET_START})
 }
  
-export const fetchSuccess = (comic) => {
-    return({type:FETCH_SUCCESS, payload: comic})
+export const getSuccess = (user) => {
+    console.log('in get success')
+    return({type:GET_SUCCESS, payload: user})
 }
 
-export const fetchError = (error) => {
-    return({type:FETCH_ERROR, payload: error})
+export const getError = (error) => {
+    return({type:GET_ERROR, payload: error})
 }
 
 export const setUsername = (username) => {
@@ -28,16 +29,17 @@ export const setFirstName = (first_name) => {
 
 export const getUser = (username) => {
     return(dispatch) => {
-        dispatch(fetchStart())
+        dispatch(getStart())
 
         axiosWithAuth()
             .get(`/account/${username}`)
             .then(res => {
+                console.log('success in action')
                 console.log(res.data)
-                dispatch(fetchSuccess(res.data))
+                dispatch(getSuccess(res.data))
             })
             .catch(err => {
-                dispatch(fetchError(err))
+                dispatch(getError(err))
             })
     }
 }

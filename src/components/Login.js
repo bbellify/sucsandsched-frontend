@@ -37,6 +37,8 @@ function Login(props) {
             , formValues)
             .then(res => {
                 localStorage.setItem('token', res.data.token)
+                localStorage.setItem('username', res.data.username)
+                //safety hatch for refresh bug.. don't love it
                 props.setUsername(res.data.username)
                 props.setFirstName(res.data.first_name)
                 navigate('/my-account')

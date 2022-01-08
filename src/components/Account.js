@@ -5,37 +5,40 @@ import { getUser } from '../actions/userActions'
 
 import Container from 'react-bootstrap/Container'
 
-
-//axiosWithAuth will go here to populate this component
+// call getUser on mount, getting username from localStorage as backup
 
 class Account extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    // do I need local state?
-
 
     componentDidMount() {
-        const { dispatch } = this.props
-        dispatch(getUser(this.props.username))
+        const uname = localStorage.getItem('username')
+        console.log(uname)
+        this.props.getUser(this.props.username ? this.props.username : uname)
     }
 
-    componentDidUpdate(prevProps, prevState) {
-
+    componentDidUpdate(prevProps) {
+        // console.log(prevProps)
+        // console.log(prevProps.first_name)
+        // console.log(this.props.first_name)
+        // if (prevProps.first_name !== this.props.first_name) {
+        //     this.props.getUser(prevProps.username)
+        // }
     }
 
     render() {
+        console.log(this.props.user)
         return (
+            
             <Container>
-                <h2>welcome back {this.props.first_name}</h2>
+                <h2>welcome back {this.props.user.first_name}</h2>
                 <div>
                     <h3>tracking sucs: {this.props.user.does_sucs}</h3>
                     <h3>upcoming races:</h3>
                     <h4>all above in conditional div on whether user has been got</h4>
                 </div>
             </Container>
-        );
+        )
     }
+
 }
 
 const mapStateToProps = state => {
@@ -46,4 +49,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(Account);
+export default connect(mapStateToProps, { getUser })(Account);
