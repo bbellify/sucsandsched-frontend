@@ -2,10 +2,14 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 
+import RegisteredModal from './RegisteredModal'
+
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 
 function Register(props) {
+
+    const [registered, setRegistered] = useState({ registered: false, error: '' })
 
     const initialValues = {
         username: '',
@@ -23,21 +27,17 @@ function Register(props) {
             [e.target.name]: e.target.value
         })
     }
-
-    // redirect back to log in, maybe display name or something? 
     
     const handleSubmit = e => {
         e.preventDefault()
 
         axios.post(`${process.env.REACT_APP_BASE_URL}/auth/register`, formValues)
             .then(res => {
-                //render success modal with button to redirect to login, pass props to that 
-                console.log(res.data)
-                // remove this redirect once modal is set up
-                navigate('/login')
+                setRegistered({ registered: true, error: '' })
+                
             })
             .catch(err => {
-                console.log(err)
+                setRegistered({ registered: false, error: err.response.data.message})
             })
     }
 
@@ -54,6 +54,7 @@ function Register(props) {
             >
                 <div className='form-group w-75'>
                     <h3>get registered:</h3>
+                    {registered.error && <h3>{registered.error}</h3>}
                     <input 
                         name='username'
                         type='text'
@@ -72,8 +73,7 @@ function Register(props) {
                     ></input>
                     <input 
                         name='password'
-                        // remove comment below when live
-                        // type='password'
+                        type='password'
                         placeholder='password'
                         className='form-control my-1'
                         value={formValues.password}
@@ -88,6 +88,8 @@ function Register(props) {
                     </Button>
                 </div>
             </form>
+
+            {registered && <RegisteredModal user={{ username: formValues.username, first_name: formValues.first_name}}/>}
         </Container>
     );
 }
