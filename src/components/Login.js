@@ -29,7 +29,7 @@ function Login(props) {
 
     const handleSubmit = e => {
         e.preventDefault()
-        axios.post(process.env.REACT_APP_BASE_URL, formValues)
+        axios.post(`${process.env.REACT_APP_BASE_URL}/auth/login`, formValues)
             .then(res => {
                 localStorage.setItem('token', res.data.token)
                 localStorage.setItem('username', res.data.username)
