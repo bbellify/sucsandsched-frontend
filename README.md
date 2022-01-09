@@ -2,16 +2,15 @@
 ## Frontend App for simple fitness schedules/run club
 
 ### Set Up
-1. Make sure an environment variable REACT_APP_BASE_URL is set to your development server (node backend)
+1. create .env (all must begin with REACT_APP - REACT_APP_NEW_VAR)
+    - REACT_APP_BASE_URL
 
-Netlify deploy:
+### Netlify Deploy
 - set REACT_APP_BASE_URL environment variable to your live backend
 - investigate netlify cl
-
-
-Build command:
-CI=false npm run build
-does something with ignoring errors, fixed something that strictmode didn't -- investigate
+- Build command:
+    - CI=false npm run build
+    - does something with ignoring errors, fixed something that strictmode didn't -- investigate
 
 ### MVP
 1. Anyone can go to the website and view sucs, the current running schedule, and upcoming races
