@@ -43,49 +43,44 @@ function Register(props) {
     }
 
     return (
-            <Container className='mt-4 d-flex flex-column align-items-center col-md-6'>
+            <Container className='mt-4 col-10 col-md-5 col-lg-4 text-center'>
                 
                 {registered.registered && <RegisteredModal user={{ username: formValues.username, first_name: formValues.first_name}}/>}
                 
-                <form 
-                    className='text-center w-75'
-                    onSubmit={handleSubmit}
-                >
-                    <div className='form-group w-75'>
-                        <h3>get registered:</h3>
-                        <input 
-                            name='username'
-                            type='text'
-                            placeholder='username'
-                            className='form-control my-1'
-                            value={formValues.username}
-                            onChange={handleChange}
-                        ></input>
-                        <input 
-                            name='first_name'
-                            type='text'
-                            placeholder='first name'
-                            className='form-control my-1'
-                            value={formValues.first_name}
-                            onChange={handleChange}
-                        ></input>
-                        <input 
-                            name='password'
-                            type='password'
-                            placeholder='password'
-                            className='form-control my-1'
-                            value={formValues.password}
-                            onChange={handleChange}
-                        ></input>
-                        <Button 
-                            className='w-100 my-1'
-                            variant='light'
-                            type='submit'
-                        >
-                            create account
-                        </Button>
-                        {registered.error && <h3>{registered.error}</h3>}
-                    </div>
+                <form onSubmit={handleSubmit}>
+                    <h3>get registered:</h3>
+                    <input 
+                        name='username'
+                        type='text'
+                        placeholder='username'
+                        className='form-control my-1'
+                        value={formValues.username}
+                        onChange={handleChange}
+                    ></input>
+                    <input 
+                        name='first_name'
+                        type='text'
+                        placeholder='first name'
+                        className='form-control my-1'
+                        value={formValues.first_name}
+                        onChange={handleChange}
+                    ></input>
+                    <input 
+                        name='password'
+                        type='password'
+                        placeholder='password'
+                        className='form-control my-1'
+                        value={formValues.password}
+                        onChange={handleChange}
+                    ></input>
+                    <Button 
+                        className='w-100 my-1'
+                        variant='light'
+                        type='submit'
+                    >
+                        create account
+                    </Button>
+                    {registered.error && <h3>{registered.error}</h3>}
                 </form>
 
             </Container>

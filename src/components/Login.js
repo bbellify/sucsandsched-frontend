@@ -55,11 +55,8 @@ function Login(props) {
     }
 
     return (
-        <Container className='mt-4'>
-            <form 
-                onSubmit={handleSubmit}
-                className='col-md-6'
-            >
+        <Container className='mt-4 col-10 col-md-5 col-lg-4 text-center'>
+            <form onSubmit={handleSubmit}>
                     <h3>welcome back</h3>
                     <input
                         name='username'
@@ -84,7 +81,7 @@ function Login(props) {
                     */}
 
                     <Button 
-                        className='w-100 w-md-50 my-1'
+                        className='w-100 my-1'
                         variant='light'
                         type='submit'
                     >
