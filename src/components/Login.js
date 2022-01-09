@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 import { LinkContainer } from 'react-router-bootstrap'
 import { useNavigate } from 'react-router-dom'
@@ -9,18 +9,35 @@ import { setUsername, setFirstName } from '../actions/userActions'
 
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
+import Alert from 'react-bootstrap/Alert'
 
 function Login(props) {
 
-    // error states
     const [errors, setErrors] = useState({
         invCred: '',
-
+        disabled: true
     })
 
     const [formValues, setFormValues] = useState({ 
         username: props.username ? props.username : '', 
-        password: '' })
+        password: '' 
+    })
+
+
+    useEffect(() => {
+        if(formValues.username.length > 0 && formValues.password.length > 0) {
+            setErrors({
+                ...errors,
+                disabled: false
+            })
+        } else if (formValues.username.length === 0 || formValues.password.length === 0 )
+            setErrors({
+                ...errors,
+                disabled: true
+            })
+    }, [formValues]) //eslint-disable-line
+
+    const navigate = useNavigate()
 
     const handleChange = e => {
         setFormValues({
@@ -29,11 +46,15 @@ function Login(props) {
         })
     }
 
-    const navigate = useNavigate()
-
     const handleSubmit = e => {
         e.preventDefault()
-        axios.post(`${process.env.REACT_APP_BASE_URL}/auth/login`, formValues)
+
+        const creds = {
+            username: formValues.username.trim(),
+            password: formValues.password.trim()
+        }
+
+        axios.post(`${process.env.REACT_APP_BASE_URL}/auth/login`, creds)
             .then(res => {
                 localStorage.setItem('token', res.data.token)
                 localStorage.setItem('username', res.data.username)
@@ -44,13 +65,10 @@ function Login(props) {
                 // for future reference - navigate() appears to have a problem with template literals, better to just do string concatenation 
             })
             .catch(err => {
-
-                //pick up here - test bad log in
                 setErrors({
                     ...errors,
                     invCred: err.response.data.message
                 })
-                console.log(errors)
             })
     }
 
@@ -75,15 +93,17 @@ function Login(props) {
                         onChange={handleChange}
                     ></input>
                     
-                    {/* alerts goes here
-                        one for incorrect login
-                        one for form validation
-                    */}
+                    {errors.invCred &&
+                    <Alert className='py-2 mb-1' variant='danger'>
+                        {errors.invCred}
+                    </Alert>
+                    }
 
                     <Button 
                         className='w-100 my-1'
                         variant='light'
                         type='submit'
+                        disabled={errors.disabled}
                     >
                         login
                     </Button>
