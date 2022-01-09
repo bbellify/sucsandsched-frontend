@@ -13,6 +13,11 @@ import Button from 'react-bootstrap/Button'
 function Login(props) {
 
     // error states
+    const [errors, setErrors] = useState({
+        invCred: '',
+
+    })
+
     const [formValues, setFormValues] = useState({ 
         username: props.username ? props.username : '', 
         password: '' })
@@ -38,7 +43,15 @@ function Login(props) {
                 navigate('/my-account')
                 // for future reference - navigate() appears to have a problem with template literals, better to just do string concatenation 
             })
-            .catch()
+            .catch(err => {
+
+                //pick up here - test bad log in
+                setErrors({
+                    ...errors,
+                    invCred: err.response.data.message
+                })
+                console.log(errors)
+            })
     }
 
     return (
