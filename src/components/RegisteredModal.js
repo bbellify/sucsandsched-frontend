@@ -12,7 +12,7 @@ function Registered(props) {
 
     return (
         
-        <Modal className='my-4 text-center' show='true' > 
+        <Modal className='my-4 text-center' show='true'> 
             <Modal.Body className='my-3'>
                 <h4>welcome, {first_name}</h4>
                 <h5>username: {username}</h5>
