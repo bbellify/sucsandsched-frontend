@@ -4,8 +4,10 @@
 ### Set Up
 1. Make sure an environment variable REACT_APP_BASE_URL is set to your development server (node backend)
 
-On netlify deploy:
-set REACT_APP_BASE_URL environment variable to your live backend
+Netlify deploy:
+- set REACT_APP_BASE_URL environment variable to your live backend
+- investigate netlify cl
+
 
 Build command:
 CI=false npm run build
@@ -35,6 +37,8 @@ does something with ignoring errors, fixed something that strictmode didn't -- i
 3. Close Offcanvas on link click
 
 4. Add upcoming races table, map over it for all upcoming races cards on Home component
+
+5. investigate netlify cli
 
 ### Stretch
 1. User can upload own running schedule
