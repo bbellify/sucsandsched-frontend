@@ -113,7 +113,13 @@ function Register(props) {
                     >
                         create account
                     </Button>
-                    {registered.error && <h3>{registered.error}</h3>}
+                    
+                    {registered.error && 
+                    
+                    <Alert className='py-2 mt-2 mb-1' variant='danger'>
+                            {registered.error}
+                    </Alert>
+                    }
 
                     {formErrors.username && 
                         <Alert className='py-2 mb-1' variant='danger'>
