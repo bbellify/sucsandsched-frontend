@@ -28,11 +28,17 @@ function Register(props) {
     
     const handleSubmit = e => {
         e.preventDefault()
-        console.log('submit')
 
-        // axios.post('url', formValues)
-        //     .then()
-        //     .catch()
+        axios.post(`${process.env.REACT_APP_BASE_URL}/auth/register`, formValues)
+            .then(res => {
+                //render success modal with button to redirect to login, pass props to that 
+                console.log(res.data)
+                // remove this redirect once modal is set up
+                navigate('/login')
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
 
     //temporary - remove this 
@@ -57,11 +63,11 @@ function Register(props) {
                         onChange={handleChange}
                     ></input>
                     <input 
-                        name='password'
+                        name='first_name'
                         type='text'
                         placeholder='first name'
                         className='form-control my-1'
-                        value={formValues.password}
+                        value={formValues.first_name}
                         onChange={handleChange}
                     ></input>
                     <input 

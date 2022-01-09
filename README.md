@@ -3,7 +3,7 @@
 
 ### Set Up
 1. create .env (all must begin with REACT_APP - REACT_APP_NEW_VAR)
-    - REACT_APP_BASE_URL
+    - set REACT_APP_BASE_URL to your local development url (eg localhost:9000)
 
 ### Netlify Deploy
 - set REACT_APP_BASE_URL environment variable to your live backend
@@ -34,6 +34,7 @@
     - adjust spacing at md breakpoint, add a little space between cards
 
 3. Close Offcanvas on link click
+    - maybe an onMouseExit? or equivalent
 
 4. Add upcoming races table, map over it for all upcoming races cards on Home component
 
