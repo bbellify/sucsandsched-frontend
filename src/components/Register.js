@@ -1,6 +1,8 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from 'react';
+
+import { connect } from 'react-redux'
+import { setUsername } from '../actions/userActions'
 
 import RegisteredModal from './RegisteredModal'
 
@@ -19,8 +21,6 @@ function Register(props) {
 
     const [formValues, setFormValues] = useState(initialValues)
 
-    const navigate = useNavigate()
-
     const handleChange = e => {
         setFormValues({
             ...formValues,
@@ -33,6 +33,7 @@ function Register(props) {
 
         axios.post(`${process.env.REACT_APP_BASE_URL}/auth/register`, formValues)
             .then(res => {
+                props.setUsername(res.data.username)
                 setRegistered({ registered: true, error: '' })
                 
             })
@@ -40,11 +41,6 @@ function Register(props) {
                 setRegistered({ registered: false, error: err.response.data.message})
             })
     }
-
-    //temporary - remove this 
-    useEffect(() => {
-        localStorage.setItem('token', 420)
-    })
 
     return (
         <Container className='text-center mt-4'>
@@ -54,7 +50,6 @@ function Register(props) {
             >
                 <div className='form-group w-75'>
                     <h3>get registered:</h3>
-                    {registered.error && <h3>{registered.error}</h3>}
                     <input 
                         name='username'
                         type='text'
@@ -86,12 +81,13 @@ function Register(props) {
                     >
                         create account
                     </Button>
+                    {registered.error && <h3>{registered.error}</h3>}
                 </div>
             </form>
 
-            {registered && <RegisteredModal user={{ username: formValues.username, first_name: formValues.first_name}}/>}
+            {registered.registered && <RegisteredModal user={{ username: formValues.username, first_name: formValues.first_name}}/>}
         </Container>
     );
 }
 
-export default Register;
+export default connect(null, { setUsername })(Register);

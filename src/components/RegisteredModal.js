@@ -1,5 +1,11 @@
-import React from 'react';
+import React, { useState} from 'react';
 import { useNavigate } from "react-router";
+
+import Modal from 'react-bootstrap/Modal'
+import Button from 'react-bootstrap/Button'
+
+import { LinkContainer } from 'react-router-bootstrap'
+
 
 
 function Registered(props) {
@@ -9,11 +15,13 @@ function Registered(props) {
     const navigate = useNavigate()
 
     return (
-        <div>
-            <h3>Registered</h3>
-            <h4>{first_name}</h4>
-            <h4>{username}</h4>
-        </div>
+        <Modal show='true'> 
+            <h3>success <span>😤</span></h3>
+            <h4>welcome, {first_name}</h4>
+            <LinkContainer to='/login'>
+                <Button>get started</Button>
+            </LinkContainer>
+        </Modal>
     );
 }
 

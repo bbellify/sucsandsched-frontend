@@ -12,9 +12,10 @@ import Button from 'react-bootstrap/Button'
 
 function Login(props) {
 
-    
     // error states
-    const [formValues, setFormValues] = useState({ username: '', password: '' })
+    const [formValues, setFormValues] = useState({ 
+        username: props.username ? props.username : '', 
+        password: '' })
 
     const handleChange = e => {
         setFormValues({
@@ -52,7 +53,7 @@ function Login(props) {
                     name='username'
                     type='text'
                     placeholder='username'
-                    className='form-control my-1'
+                    className='form-control my-1 fw-bold'
                     value={formValues.username}
                     onChange={handleChange}
                 ></input>
@@ -60,7 +61,7 @@ function Login(props) {
                     name='password'
                     type='password'
                     placeholder='password'
-                    className='form-control my-1'
+                    className='form-control my-1 fw-bold'
                     value={formValues.password}
                     onChange={handleChange}
                 ></input>
@@ -87,5 +88,10 @@ function Login(props) {
     );
 }
 
+const mapStateToProps = state => {
+    return ({
+        username: state.user.username
+    })
+}
 
-export default connect(null, { setUsername, setFirstName })(Login);
+export default connect(mapStateToProps, { setUsername, setFirstName })(Login);
