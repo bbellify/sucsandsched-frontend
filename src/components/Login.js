@@ -18,8 +18,6 @@ function Login(props) {
     // error states
     const [formValues, setFormValues] = useState({ username: '', password: '' })
 
-    // const dispatch = useDispatch()
-
     const handleChange = e => {
         setFormValues({
             ...formValues,
@@ -31,10 +29,7 @@ function Login(props) {
 
     const handleSubmit = e => {
         e.preventDefault()
-        axios.post(
-            `${BASE_URL}/auth/login`
-            // 'http://localhost:9000/auth/login'
-            , formValues)
+        axios.post(process.env.REACT_APP_BASE_URL, formValues)
             .then(res => {
                 localStorage.setItem('token', res.data.token)
                 localStorage.setItem('username', res.data.username)

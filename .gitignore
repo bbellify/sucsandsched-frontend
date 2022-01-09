@@ -12,6 +12,7 @@
 /build
 
 # dotenv environment variables
+.env
 .env.local
 
 # misc

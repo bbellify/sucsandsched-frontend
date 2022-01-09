@@ -4,6 +4,17 @@
 ### Set Up
 1. Make sure an environment variable BASE_URL is set to database url
 
+
+
+
+On netlify deploy:
+
+set REACT_APP_BASE_URL environment variable to your deployed backend
+
+Build command:
+CI=false npm run build
+does something with ignoring errors, fixed something that strictmode didn't -- investigate
+
 ### MVP
 1. Anyone can go to the website and view sucs, the current running schedule, and upcoming races
 2. Users can create account

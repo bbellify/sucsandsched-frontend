@@ -23,8 +23,10 @@ export const getSucs = () => {
         dispatch(fetchStart())
 
         axios.get(
-            // toggle for development
+            // on for development
             // 'http://localhost:9000/api/sucs'
+            
+            //on for live
             `${BASE_URL}/api/sucs`
             )
             .then(res => {
