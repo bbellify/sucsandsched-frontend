@@ -1,5 +1,5 @@
 # Sucs and Sched
-## Frontend App for simple fitness schedules
+## Frontend App for simple fitness schedules/run club
 
 ### Set Up
 1. Make sure an environment variable REACT_APP_BASE_URL is set to your development server (node backend)
@@ -13,12 +13,17 @@ does something with ignoring errors, fixed something that strictmode didn't -- i
 
 ### MVP
 1. Anyone can go to the website and view sucs, the current running schedule, and upcoming races
+
 2. Users can create account
     - on account page, users can choose to track their daily sucs
     - on account page, users can add races to their upcoming list
     - on sucs page, users can toggle complete on a day
 
-3. Admin has additional ability of clearing everyones sucs to start over
+3. Logged in user can
+    - see and edit own sucs status
+    - see sucs scoreboard (family sucs) - longest active streak, most days this month (requires backend adds)
+
+4. Admin has additional ability of clearing everyones sucs to start over
 
 ### To Do
 1. Auth/login
@@ -30,3 +35,8 @@ does something with ignoring errors, fixed something that strictmode didn't -- i
 3. Close Offcanvas on link click
 
 4. Add upcoming races table, map over it for all upcoming races cards on Home component
+
+### Stretch
+1. User can upload own running schedule
+2. User can log own miles (public/private)
+3. User can see scoreboard of other users public logs
