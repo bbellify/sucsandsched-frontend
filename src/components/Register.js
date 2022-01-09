@@ -43,13 +43,12 @@ function Register(props) {
     }
 
     return (
-
-        <div>
-            {registered.registered && <RegisteredModal user={{ username: formValues.username, first_name: formValues.first_name}}/>}
-        
-            <Container className='text-center mt-4'>
+            <Container className='mt-4 d-flex flex-column align-items-center col-md-6'>
+                
+                {registered.registered && <RegisteredModal user={{ username: formValues.username, first_name: formValues.first_name}}/>}
+                
                 <form 
-                    className='d-flex flex-column align-items-center'
+                    className='text-center w-75'
                     onSubmit={handleSubmit}
                 >
                     <div className='form-group w-75'>
@@ -90,7 +89,6 @@ function Register(props) {
                 </form>
 
             </Container>
-        </div>
     );
 }
 

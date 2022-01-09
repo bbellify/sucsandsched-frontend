@@ -55,47 +55,46 @@ function Login(props) {
     }
 
     return (
-        <Container className='mt-4 d-flex flex-column align-items-center col-md-6'>
+        <Container className='mt-4'>
             <form 
                 onSubmit={handleSubmit}
-                className='text-center w-75'
-
+                className='col-md-6'
             >
-                <h3>welcome back</h3>
-                <input
-                    name='username'
-                    type='text'
-                    placeholder='username'
-                    className='form-control my-1 fw-bold'
-                    value={formValues.username}
-                    onChange={handleChange}
-                ></input>
-                <input 
-                    name='password'
-                    type='password'
-                    placeholder='password'
-                    className='form-control my-1 fw-bold'
-                    value={formValues.password}
-                    onChange={handleChange}
-                ></input>
-                
-                {/* alerts goes here
-                    one for incorrect login
-                    one for form validation
-                */}
+                    <h3>welcome back</h3>
+                    <input
+                        name='username'
+                        type='text'
+                        placeholder='username'
+                        className='form-control my-1 fw-bold'
+                        value={formValues.username}
+                        onChange={handleChange}
+                    ></input>
+                    <input 
+                        name='password'
+                        type='password'
+                        placeholder='password'
+                        className='form-control my-1 fw-bold'
+                        value={formValues.password}
+                        onChange={handleChange}
+                    ></input>
+                    
+                    {/* alerts goes here
+                        one for incorrect login
+                        one for form validation
+                    */}
 
-                <Button 
-                    className='w-100 w-md-50 my-1'
-                    variant='light'
-                    type='submit'
-                >
-                    login
-                </Button>
-                <LinkContainer className='w-100' to='/register'>
-                    <Button variant='light'>
-                        need an account?
+                    <Button 
+                        className='w-100 w-md-50 my-1'
+                        variant='light'
+                        type='submit'
+                    >
+                        login
                     </Button>
-                </LinkContainer>
+                    <LinkContainer className='w-100' to='/register'>
+                        <Button variant='light'>
+                            need an account?
+                        </Button>
+                    </LinkContainer>
             </form>
         </Container>
     );
