@@ -47,8 +47,9 @@ function Register(props) {
         })
     }
 
+    // should I be using the formErrors here? this feels clunky
     useEffect(() => {
-        if(formValues.username.length > 0 && formValues.first_name.length > 0 && formValues.password.length > 0 ) {
+        if(formValues.username.length > 2 && formValues.first_name.length > 2 && formValues.password.length > 3 ) {
             setIsDisabled(false)
         } else if (formValues.username.length === 0 || formValues.first_name.length === 0 || formValues.password.length === 0 )
             setIsDisabled(true)
