@@ -2,14 +2,10 @@
 ## Frontend App for simple fitness schedules
 
 ### Set Up
-1. Make sure an environment variable BASE_URL is set to database url
-
-
-
+1. Make sure an environment variable REACT_APP_BASE_URL is set to your development server (node backend)
 
 On netlify deploy:
-
-set REACT_APP_BASE_URL environment variable to your deployed backend
+set REACT_APP_BASE_URL environment variable to your live backend
 
 Build command:
 CI=false npm run build

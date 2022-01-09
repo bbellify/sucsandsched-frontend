@@ -7,8 +7,6 @@ import { connect } from 'react-redux'
 
 import { setUsername, setFirstName } from '../actions/userActions'
 
-import { BASE_URL } from '../constants/index'
-
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 

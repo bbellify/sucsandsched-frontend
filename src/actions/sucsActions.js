@@ -1,8 +1,5 @@
 import axios from 'axios'
 
-import { BASE_URL } from '../constants'
-
-
 //should change fetch here to sucs, something more specific. also add note template that these should be more specific, perhaps leave eg FETCH_START = 'FETCH_START' (and others) in template is ok, with note about being more specific
 export const FETCH_START = 'FETCH_START'
 export const FETCH_SUCCESS = 'FETCH_SUCCESS'
