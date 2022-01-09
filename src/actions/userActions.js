@@ -19,8 +19,6 @@ export const getError = (error) => {
 }
 
 export const setUsername = (username) => {
-    console.log('in setusername action, username below')
-    console.log(username)
     return({type:SET_USERNAME, payload: username})
 }
 

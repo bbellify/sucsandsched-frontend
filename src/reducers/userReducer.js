@@ -17,8 +17,6 @@ const initialState = {
 const userReducer = (state = initialState, action) => {
     switch(action.type) {
         case(SET_USERNAME):
-            console.log('in reducer name below')
-            console.log(action.payload)
             return({
                 ...state,
                 username: action.payload
