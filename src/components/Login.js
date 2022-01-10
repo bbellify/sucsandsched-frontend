@@ -5,8 +5,6 @@ import { useNavigate } from 'react-router-dom'
 
 import { connect } from 'react-redux'
 
-import { setUsername, setFirstName } from '../actions/userActions'
-
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 import Alert from 'react-bootstrap/Alert'
@@ -58,9 +56,6 @@ function Login(props) {
             .then(res => {
                 localStorage.setItem('token', res.data.token)
                 localStorage.setItem('username', res.data.username)
-                //safety hatch for refresh bug.. don't love it
-                props.setUsername(res.data.username)
-                props.setFirstName(res.data.first_name)
                 navigate('/my-account')
                 // for future reference - navigate() appears to have a problem with template literals, better to just do string concatenation 
             })
@@ -123,4 +118,4 @@ const mapStateToProps = state => {
     })
 }
 
-export default connect(mapStateToProps, { setUsername, setFirstName })(Login);
+export default connect(mapStateToProps)(Login);

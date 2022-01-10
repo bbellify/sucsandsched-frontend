@@ -1,4 +1,5 @@
 import axios from 'axios'
+import axiosWithAuth from '../utils/axiosWithAuth'
 
 //should change fetch here to sucs, something more specific. also add note template that these should be more specific, perhaps leave eg FETCH_START = 'FETCH_START' (and others) in template is ok, with note about being more specific
 export const FETCH_START = 'FETCH_START'
@@ -23,6 +24,36 @@ export const getSucs = () => {
 
         axios.get(`${process.env.REACT_APP_BASE_URL}/api/sucs`)
             .then(res => {
+                dispatch(fetchSuccess(res.data))
+            })
+            .catch(err => {
+                dispatch(fetchError(err))
+            })
+    }
+}
+
+export const getSucsAll = () => {
+    return(dispatch) => {
+        dispatch(fetchStart())
+
+        axiosWithAuth()
+            .get('/sucs/all')
+            .then( res => {
+                dispatch(fetchSuccess(res.data))
+            })
+            .catch(err => {
+                dispatch(fetchError(err))
+            })
+    }
+}
+
+export const logSucs = (day) => {
+    return(dispatch) => {
+        dispatch(fetchStart()
+        )
+        axiosWithAuth()
+            .post('/sucs/log', {day})
+            .then( res => {
                 dispatch(fetchSuccess(res.data))
             })
             .catch(err => {

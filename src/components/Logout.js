@@ -4,6 +4,9 @@ import { useNavigate } from "react-router";
 
 import lasers from '../assets/lasers.jpeg'
 
+
+// set up so Logout only renders if you're actually logged in?
+
 function Logout(props) {
 
     const navigate = useNavigate()
