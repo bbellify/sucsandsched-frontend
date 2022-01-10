@@ -8,16 +8,8 @@ import Container from 'react-bootstrap/Container'
 class Account extends React.Component {
 
     componentDidMount() {
-        const uname = localStorage.getItem('username')
-        if (!uname && ! this.props.username) {
-            
-            console.log('broken')
-            // figure out this edge case.. modal could be nice
-
-        } else {
-            this.props.getUser(this.props.username ? this.props.username : uname)
-        }
-
+        
+        this.props.getUser()
     }
 
     componentDidUpdate(prevProps) {

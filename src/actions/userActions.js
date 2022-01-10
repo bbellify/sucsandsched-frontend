@@ -26,12 +26,12 @@ export const setFirstName = (first_name) => {
     return({type:SET_FIRST_NAME, payload: first_name})
 }
 
-export const getUser = (username) => {
+export const getUser = () => {
     return(dispatch) => {
         dispatch(getStart())
 
         axiosWithAuth()
-            .get(`/account/${username}`)
+            .get(`/account`)
             .then(res => {
                 dispatch(getSuccess(res.data))
             })

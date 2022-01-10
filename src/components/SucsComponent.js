@@ -14,6 +14,7 @@ function SucsComponent(props) {
     const { sucs } = props
     const username = localStorage.getItem('username')
 
+    // maybe should refactor this so there's only one getSucs call and it delivers based on if there is a token - would have to tweak in back end also
     useEffect(() => {
         if (localStorage.getItem('username')) {
             props.getSucsAll()
