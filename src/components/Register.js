@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as yup from 'yup'
 import schema from '../utils/registerSchema'
 
@@ -44,14 +44,14 @@ function Register(props) {
             ...formValues,
             [e.target.name]: e.target.value
         })
-
-        //testing
-        console.log(formErrors)
     }
 
     useEffect(() => {
-        if ( formValues.username.length < 3 || formValues.first_name.length < 3 || formValues.password.length < 4) { setIsDisabled(true) } 
-        else { setIsDisabled(false) }
+        if ( formValues.username.length < 3 || formValues.first_name.length < 3 || formValues.password.length < 4) { 
+            setIsDisabled(true) 
+        } else { 
+            setIsDisabled(false) 
+        }
     }, [formValues]); //eslint-disable-line
 
     const handleSubmit = e => {
