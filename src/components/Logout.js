@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from "react-router";
 
+import { connect } from 'react-redux'
+import { setUsername } from '../actions/userActions';
 
 import lasers from '../assets/lasers.jpeg'
-
 
 // set up so Logout only renders if you're actually logged in?
 
@@ -12,6 +13,7 @@ function Logout(props) {
     const navigate = useNavigate()
 
     useEffect(() => {
+        props.setUsername('')
         localStorage.removeItem('token')
     }, [])
 
@@ -30,4 +32,4 @@ function Logout(props) {
     );
 }
 
-export default Logout;
+export default connect(null, { setUsername })(Logout);

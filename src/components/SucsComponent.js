@@ -5,24 +5,19 @@ import Container from 'react-bootstrap/Container'
 import Table from 'react-bootstrap/Table'
 import Button from 'react-bootstrap/Button'
 
-import { getSucs, getSucsAll, logSucs } from '../actions/sucsActions'
+import { getSucs, getSucsRes, logSucs } from '../actions/sucsActions'
 
 import { useEffect } from 'react'
 
 function SucsComponent(props) {
 
-    const { sucs } = props
-
-    // need to refactor here - want to maybe go down to one endpoint, BUT without username in localstorage I'm not sending username to the backend to get the restricted getSucs. The username is in the decodedJwt, BUT the decodedJwt appears AFTER restricted middleware. if I put that middleware on the endpoint, instead of failing and just delivering no restriction getSucs, it nexts to error. hmmm. solution below hits the right endpoints, but there's also a new problem.. no username being grabbed from localStorage for conditional rendering below. I need that from props instead I guess? step through the getSucs actions and see if theres a place to dispatch a setUsername
+    const { sucs, username } = props
     
-    const username = localStorage.getItem('username')
-
     useEffect(() => {
-
         if (!localStorage.getItem('token')) {
             props.getSucs()
         } else {
-            props.getSucsAll()
+            props.getSucsRes()
         }
     }, [])
 
@@ -31,10 +26,21 @@ function SucsComponent(props) {
         props.logSucs(today.getDate())
     }
 
+    const handleButton = () => {
+        console.log('turn on sucs')
+    }
+
+    // I think below will be for the get everyone's sucs button. import getSucsAll above, pass to props below
+    // useEffect(() => {
+    //     getSucsAll
+    // })
+
     return (
         <Container>
             <div className='d-flex flex-row justify-content-between mt-2'>
                 <h4 className='mt-3'>sucs</h4>
+                {(!username && localStorage.getItem('token')) &&
+                    <Button onClick={()=>handleButton()}variant='light' className='border-dark py-1 btn-sm'>track your sucs</Button>}
                 {username && 
                 <Button onClick={()=>logToday()}variant='light' className='border-dark py-1 btn-sm'>Log today</Button>}
             </div>
@@ -91,8 +97,9 @@ function SucsComponent(props) {
 const mapStateToProps = state => {
     return {
         sucs: state.sucs.sucs,
-        error: state.sucs.error
+        error: state.sucs.error,
+        username: state.user.username
     }
 }
 
-export default connect(mapStateToProps, { getSucs, getSucsAll, logSucs })(SucsComponent)
+export default connect(mapStateToProps, { getSucs, getSucsRes, logSucs })(SucsComponent)
