@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import * as yup from 'yup'
 import schema from '../utils/registerSchema'
 
@@ -14,15 +14,14 @@ import Alert from 'react-bootstrap/Alert'
 
 function Register(props) {
 
-    const [registered, setRegistered] = useState({ registered: false, error: '' })
-    const [isDisabled, setIsDisabled] = useState(true)
-
     const initialValues = {
         username: '',
         first_name: '',
-        password: ''
+        password: '',
     }
 
+    const [registered, setRegistered] = useState({ registered: false, error: '' })
+    const [isDisabled, setIsDisabled] = useState(true)
     const [formValues, setFormValues] = useState(initialValues)
 
     const [formErrors, setFormErrors] = useState({
@@ -45,16 +44,16 @@ function Register(props) {
             ...formValues,
             [e.target.name]: e.target.value
         })
+
+        //testing
+        console.log(formErrors)
     }
 
-    // should I be using the formErrors here? this feels clunky
     useEffect(() => {
-        if(formValues.username.length > 2 && formValues.first_name.length > 2 && formValues.password.length > 3 ) {
-            setIsDisabled(false)
-        } else if (formValues.username.length === 0 || formValues.first_name.length === 0 || formValues.password.length === 0 )
-            setIsDisabled(true)
-    }, [formValues]) //eslint-disable-line
-    
+        if ( formValues.username.length < 3 || formValues.first_name.length < 3 || formValues.password.length < 4) { setIsDisabled(true) } 
+        else { setIsDisabled(false) }
+    }, [formValues]); //eslint-disable-line
+
     const handleSubmit = e => {
         e.preventDefault()
 
@@ -73,6 +72,8 @@ function Register(props) {
                 setRegistered({ registered: false, error: err.response.data.message})
             })
     }
+    
+    
 
     return (
             <Container className='mt-4 col-10 col-md-5 col-lg-4 text-center'>
