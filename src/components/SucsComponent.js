@@ -13,17 +13,16 @@ function SucsComponent(props) {
 
     const { sucs } = props
 
-    // need to refactor here - want to maybe go down to one endpoint, BUT without username in localstorage I'm not sending username to the backend to get the restricted getSucs. The username is in the decodedJwt, BUT the decodedJwt appears AFTER restricted middleware. if I put that middleware on the endpoint, instead of failing and just delivering no restriction getSucs, it nexts to error. hmmm
+    // need to refactor here - want to maybe go down to one endpoint, BUT without username in localstorage I'm not sending username to the backend to get the restricted getSucs. The username is in the decodedJwt, BUT the decodedJwt appears AFTER restricted middleware. if I put that middleware on the endpoint, instead of failing and just delivering no restriction getSucs, it nexts to error. hmmm. solution below hits the right endpoints, but there's also a new problem.. no username being grabbed from localStorage for conditional rendering below. I need that from props instead I guess? step through the getSucs actions and see if theres a place to dispatch a setUsername
+    
     const username = localStorage.getItem('username')
 
     useEffect(() => {
 
-        //stupid hacky bugged version for now:
-        props.getSucsAll()
-        console.log(props.error)
-        
-        if(props.error.length > 0) {
+        if (!localStorage.getItem('token')) {
             props.getSucs()
+        } else {
+            props.getSucsAll()
         }
     }, [])
 
