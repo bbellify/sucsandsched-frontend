@@ -38,14 +38,6 @@ function Register(props) {
             .catch((err) => setFormErrors({...formErrors, [name]: err.errors[0]}))
     }
 
-    const handleChange = e => {
-        validate(e.target.name, e.target.value)
-        setFormValues({
-            ...formValues,
-            [e.target.name]: e.target.value
-        })
-    }
-
     useEffect(() => {
         if ( formValues.username.length < 3 || formValues.first_name.length < 3 || formValues.password.length < 4) { 
             setIsDisabled(true) 
@@ -53,6 +45,14 @@ function Register(props) {
             setIsDisabled(false) 
         }
     }, [formValues]); //eslint-disable-line
+
+    const handleChange = e => {
+        validate(e.target.name, e.target.value)
+        setFormValues({
+            ...formValues,
+            [e.target.name]: e.target.value
+        })
+    }
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -73,8 +73,6 @@ function Register(props) {
             })
     }
     
-    
-
     return (
             <Container className='mt-4 col-10 col-md-5 col-lg-4 text-center'>
                 
