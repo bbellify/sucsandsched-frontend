@@ -55,7 +55,6 @@ function Login(props) {
         axios.post(`${process.env.REACT_APP_BASE_URL}/auth/login`, creds)
             .then(res => {
                 localStorage.setItem('token', res.data.token)
-                localStorage.setItem('username', res.data.username)
                 navigate('/my-account')
                 // for future reference - navigate() appears to have a problem with template literals, better to just do string concatenation 
             })
