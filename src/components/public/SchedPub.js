@@ -18,7 +18,7 @@ function SchedPub(props) {
         return (
             <Container className='text-center'>
                 <div className='d-flex flex-row justify-content-between mt-2'>
-                    <h4 className='mt-3'>sucs</h4>
+                    <h4 className='mt-3'>sched</h4>
                     {!(localStorage.getItem('token')) &&
                         <Button onClick={()=>toLogin()}variant='light' className='border-dark py-1 btn-sm'>log in to track sched</Button>}
                 </div>
