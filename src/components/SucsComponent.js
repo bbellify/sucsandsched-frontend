@@ -28,7 +28,9 @@ function SucsComponent(props) {
         props.logSucs(today.getDate())
     }
 
+
     const handleButton = () => {
+        // open modal that will turn on sucs and then redirect to sucs
         console.log('turn on sucs')
     }
 

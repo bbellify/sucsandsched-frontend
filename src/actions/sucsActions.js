@@ -51,7 +51,6 @@ export const getSucsRes = () => {
         axiosWithAuth()
             .get('/sucs/user')
             .then( res => {
-                console.log(res.data)
                 dispatch(setUsername(res.data.username))
                 dispatch(sucsResSuccess(res.data.sucs))
             })
