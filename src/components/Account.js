@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-// new for test
-import { Route, Routes, Navigate } from 'react-router-dom'
-import SucsComponent from './SucsComponent';
+// import SucsComponent from './SucsComponent';
+// import Home from './Home'
 
 import { getUser } from '../actions/userActions'
 
@@ -12,7 +11,6 @@ import Container from 'react-bootstrap/Container'
 class Account extends React.Component {
 
     componentDidMount() {
-        
         this.props.getUser()
     }
 
@@ -22,10 +20,7 @@ class Account extends React.Component {
 
     render() {
         return (
-            <Container className='my-3'>
-
-                {/* code below breaks account page */}
-                {/* <Route path={'/sucs'} element={<SucsComponent/>}/> */}
+            <Container className='mt-3'>
 
                 <h2>welcome back {this.props.user.first_name}</h2>
 
@@ -35,6 +30,10 @@ class Account extends React.Component {
                         <h3>upcoming races:</h3>
                     </div>
                 }   
+
+                {/* components can go here.. leaderboard, etc */}
+                {/* <Home /> */}
+                {/* <SucsComponent /> */}
             </Container>
         )
     }

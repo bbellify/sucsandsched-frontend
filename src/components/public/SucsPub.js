@@ -20,7 +20,6 @@ function SucsPub(props) {
 
     useEffect(() => {
         props.getSucs()
-        console.log(sucs)
     }, [])
 
     return (

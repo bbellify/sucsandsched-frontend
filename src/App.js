@@ -21,24 +21,14 @@ function App() {
       <NavComponent />
   
       <Routes>
-
-        {/* left these for reference, but I think I can move them to Account
-        
-        <Route path={'/sucs'} element={<SucsComponent/>}/>
-        <Route path={'/sched'} element={<SchedComponent/>}/>
-        
-        
-        
-        */}
-        <Route exact path={'/sucs'} element={<SucsPub />}/>
-        <Route exact path={'/sched'} element={<SchedPub />}/>
+        <Route path={'/sucs'} element={<SucsPub />}/>
+        <Route path={'/sched'} element={<SchedPub />}/>
         <Route path={'/login'} element={<Login />}/>
         <Route path={'/logout'} element={<Logout />}/>
         <Route path={'/register'} element={<Register />}/>
         <Route path={'/'} element={<Home />}/>
 
-
-        <Route exact path={'/my-account/sucs'} 
+        <Route path={'/my-account/sucs'} 
           element={
             <RequireAuth redirectTo='/sucs'>
               <SucsComponent />
