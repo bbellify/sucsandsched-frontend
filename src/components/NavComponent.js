@@ -27,7 +27,7 @@ function NavComponent(props) {
             <h2 className='p-0 pt-1'>
                 <span onClick={() => linkClick('/sucs')}>sucs</span> 
                 <span> and </span>
-                <span onClick={() => linkClick('/sched')}>sched</span>
+                <span onClick={() => linkClick('/my-account/sched')}>sched</span>
             </h2>
             
             <Navbar.Toggle className='ms-auto p-0'/>
