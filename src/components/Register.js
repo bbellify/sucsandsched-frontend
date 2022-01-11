@@ -6,7 +6,7 @@ import schema from '../utils/registerSchema'
 import { connect } from 'react-redux'
 import { setUsername } from '../actions/userActions'
 
-import RegisteredModal from './RegisteredModal'
+import RegisteredModal from './modals/RegisteredModal'
 
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
