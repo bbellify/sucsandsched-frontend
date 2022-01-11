@@ -28,6 +28,8 @@ function SucsComponent(props) {
         props.logSucs(today.getDate())
     }
 
+// DONT RESET, HAVE NOT MERGED YET
+// START HERE - BUILD THESE MODALS, WIRE THEM UP
 
     const handleButton = () => {
         // open modal that will turn on sucs and then redirect to sucs
