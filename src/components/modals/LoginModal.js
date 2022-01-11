@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
 
 import { LinkContainer } from 'react-router-bootstrap'
 
@@ -9,8 +10,9 @@ import Button from 'react-bootstrap/Button'
 function LoginModal(props) {
 
     const { show, setShow } = props
-    console.log(show)
-    console.log(props)
+
+    // const navigate = useNavigate()
+    // I think in onSubmit I want to grab params from current url and add to my-account/current-params for redirect
 
     return (
         

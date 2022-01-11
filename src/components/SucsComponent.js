@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { useNavigate } from 'react-router-dom'
 
 import Container from 'react-bootstrap/Container'
 import Table from 'react-bootstrap/Table'
@@ -13,7 +12,6 @@ import { useEffect } from 'react'
 function SucsComponent(props) {
 
     const { sucs, username } = props
-    const navigate = useNavigate()
     
     useEffect(() => {
         if (!localStorage.getItem('token')) {
@@ -28,18 +26,9 @@ function SucsComponent(props) {
         props.logSucs(today.getDate())
     }
 
-// do this on sucs-component branch
-// START HERE - BUILD THESE MODALS, WIRE THEM UP
-
     const handleButton = () => {
         // open modal that will turn on sucs and then redirect to sucs
         console.log('turn on sucs')
-    }
-
-    // I dont think I need this function or the button that uses it below with new SucsPub refactor, but leaving for now just in case. This button/function DOES need to go in SucsPub
-    const toLogin = () => {
-        // open login modal that will redirect to sucs
-        navigate('/login')
     }
 
     // I think below will be for the get everyone's sucs button. import getSucsAll above, pass to props below
@@ -51,8 +40,6 @@ function SucsComponent(props) {
         <Container>
             <div className='d-flex flex-row justify-content-between mt-2'>
                 <h4 className='mt-3'>sucs</h4>
-                {!(localStorage.getItem('token')) &&
-                    <Button onClick={()=>toLogin()}variant='light' className='border-dark py-1 btn-sm'>log in to track sucs</Button>}
                 {((localStorage.getItem('token')) && !username) &&
                     <Button onClick={()=>handleButton()}variant='light' className='border-dark py-1 btn-sm'>track your sucs</Button>}
                 {username && 
