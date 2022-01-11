@@ -1,35 +1,31 @@
 import React from 'react'
-import { connect } from 'react-redux';
+
+import Container from 'react-bootstrap/Container'
+import Button from 'react-bootstrap/Button'
 
 import sched from '../assets/sched.JPEG'
 
-class SchedComponent extends React.Component {
+// can refactor into class component if need be I think
+function SchedPub(props) {
 
-    handleChanges = e => {
-        console.log(e.target.value)
+    // for now this should just pop up modal that says feature not yet available
+    const handleButton = () => {
+        // this is a tricky one.. probably sends to new page with massive form. this is stretch. 
+        console.log('track your sched')
     }
-
-    handleCLick = () => {
-        console.log('click')
-    }
-
-    componentDidMount() {
-        
-    }
-
-    render() {
 
         return (
-           <img src={sched} alt='sched' width='100%'/>
+            <Container className='text-center'>
+                <div className='d-flex flex-row justify-content-between mt-2'>
+                    <h4 className='mt-3'>sucs</h4>
+
+                    {localStorage.getItem('token') &&
+                    <Button onClick={()=>handleButton()}variant='light' className='border-dark py-1 btn-sm'>track your sched</Button>}
+
+                </div>
+                <img src={sched} alt='sched' className='w-100 mt-3'/>
+            </Container>
         )
-    }
-
 }
 
-const mapStateToProps = state => {
-    return {
-      
-    }
-}
-
-export default connect(mapStateToProps, { })(SchedComponent)
+export default SchedPub
