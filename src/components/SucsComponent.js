@@ -28,6 +28,7 @@ function SucsComponent(props) {
         props.logSucs(today.getDate())
     }
 
+// do this on sucs-component branch
 // START HERE - BUILD THESE MODALS, WIRE THEM UP
 
     const handleButton = () => {
@@ -35,6 +36,7 @@ function SucsComponent(props) {
         console.log('turn on sucs')
     }
 
+    // I dont think I need this function or the button that uses it below with new SucsPub refactor, but leaving for now just in case. This button/function DOES need to go in SucsPub
     const toLogin = () => {
         // open login modal that will redirect to sucs
         navigate('/login')
