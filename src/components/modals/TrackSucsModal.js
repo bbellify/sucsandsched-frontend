@@ -14,12 +14,13 @@ function TrackSucsModal(props) {
             <Modal.Body className='my-3'>
                 <h4>turn on track sucs </h4>
             </Modal.Body>
-                <LinkContainer className='w-75 align-self-center mb-3' to='/login'>
-                    <Button variant='light'>Login</Button>
-                    
-                </LinkContainer>
+            
+            <LinkContainer className='w-75 align-self-center mb-3' to='/login'>
+                <Button variant='light'>Login</Button>
+                
+            </LinkContainer>
 
-                <Button variant='light'>cancel</Button>    
+            <Button variant='light'>cancel</Button>    
     
         </Modal>
     );
