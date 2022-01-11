@@ -17,6 +17,8 @@ function SucsComponent(props) {
         if (!localStorage.getItem('token')) {
             props.getSucs()
         } else {
+
+            console.log('in on mount else')
             props.getSucsRes()
         }
     }, [])
