@@ -6,13 +6,14 @@ import { Route, Routes, Navigate } from 'react-router-dom'
 
 import NavComponent from './components/NavComponent'
 import SucsPub from './components/public/SucsPub'
-import SucsComponent from './components/SucsComponent';
+import SchedPub from './components/public/SchedPub'
+import SucsComponent from './components/SucsComponent'
 import SchedComponent from './components/SchedComponent'
 import Home from './components/Home'
 import Account from './components/Account'
 import Login from './components/Login'
 import Logout from './components/Logout'
-import Register from './components/Register';
+import Register from './components/Register'
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         
         */}
         <Route exact path={'/sucs'} element={<SucsPub />}/>
+        <Route exact path={'/sched'} element={<SchedPub />}/>
         <Route path={'/login'} element={<Login />}/>
         <Route path={'/logout'} element={<Logout />}/>
         <Route path={'/register'} element={<Register />}/>
@@ -44,6 +46,13 @@ function App() {
           }
         />
 
+        <Route exact path={'/my-account/sched'} 
+          element={
+            <RequireAuth redirectTo='/sched'>
+              <SchedComponent />
+            </RequireAuth>
+          }
+        />
 
         <Route path={'/my-account'} 
           element={

@@ -24,9 +24,8 @@ class Account extends React.Component {
         return (
             <Container className='my-3'>
 
-                
-                <Route path={'/my-account/sucs'} element={<SucsComponent/>}/>
-                {/* <SucsComponent /> */}
+                {/* code below breaks account page */}
+                {/* <Route path={'/sucs'} element={<SucsComponent/>}/> */}
 
                 <h2>welcome back {this.props.user.first_name}</h2>
 

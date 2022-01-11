@@ -25,7 +25,7 @@ function NavComponent(props) {
             <Navbar.Brand onClick={() => linkClick('/')} className='p-0 mb-1'><img src={logo} alt='logo'/></Navbar.Brand>
             
             <h2 className='p-0 pt-1'>
-                <span onClick={() => linkClick('/sucs')}>sucs</span> 
+                <span onClick={() => linkClick('/my-account/sucs')}>sucs</span> 
                 <span> and </span>
                 <span onClick={() => linkClick('/my-account/sched')}>sched</span>
             </h2>
@@ -47,11 +47,11 @@ function NavComponent(props) {
                         <Nav.Link>Account</Nav.Link>
                     </LinkContainer>
                     
-                    <LinkContainer to='/sucs'>
+                    <LinkContainer to='/my-account/sucs'>
                         <Nav.Link>SUCS</Nav.Link>
                     </LinkContainer>
                     
-                    <LinkContainer to='/sched'>
+                    <LinkContainer to='/my-account/sched'>
                         <Nav.Link>Sched</Nav.Link>
                     </LinkContainer>
 
