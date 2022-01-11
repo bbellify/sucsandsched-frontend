@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
+import { useNavigate } from 'react-router-dom'
 
 import Container from 'react-bootstrap/Container'
 import Table from 'react-bootstrap/Table'
@@ -12,13 +13,12 @@ import { useEffect } from 'react'
 function SucsComponent(props) {
 
     const { sucs, username } = props
+    const navigate = useNavigate()
     
     useEffect(() => {
         if (!localStorage.getItem('token')) {
             props.getSucs()
         } else {
-
-            console.log('in on mount else')
             props.getSucsRes()
         }
     }, [])
@@ -32,6 +32,11 @@ function SucsComponent(props) {
         console.log('turn on sucs')
     }
 
+    const toLogin = () => {
+        // open login modal that will redirect to sucs
+        navigate('/login')
+    }
+
     // I think below will be for the get everyone's sucs button. import getSucsAll above, pass to props below
     // useEffect(() => {
     //     getSucsAll
@@ -41,10 +46,12 @@ function SucsComponent(props) {
         <Container>
             <div className='d-flex flex-row justify-content-between mt-2'>
                 <h4 className='mt-3'>sucs</h4>
-                {(!username && localStorage.getItem('token')) &&
+                {!(localStorage.getItem('token')) &&
+                    <Button onClick={()=>toLogin()}variant='light' className='border-dark py-1 btn-sm'>log in to track sucs</Button>}
+                {((localStorage.getItem('token')) && !username) &&
                     <Button onClick={()=>handleButton()}variant='light' className='border-dark py-1 btn-sm'>track your sucs</Button>}
                 {username && 
-                <Button onClick={()=>logToday()}variant='light' className='border-dark py-1 btn-sm'>Log today</Button>}
+                    <Button onClick={()=>logToday()}variant='light' className='border-dark py-1 btn-sm'>Log today</Button>}
             </div>
             
             {(props.isFetching || props.sucs.length === 0) && <h2 className='mt-2'>incoming...</h2>}
