@@ -16,6 +16,7 @@ function SucsComponent(props) {
     useEffect(() => {
         if (!localStorage.getItem('token')) {
             props.getSucs()
+            console.log('in pub')
         } else {
             props.getSucsRes()
         }
