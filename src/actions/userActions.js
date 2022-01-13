@@ -29,7 +29,6 @@ export const setFirstName = (first_name) => {
 export const getUser = () => {
     return(dispatch) => {
         dispatch(getStart())
-
         axiosWithAuth()
             .get(`/account`)
             .then(res => {

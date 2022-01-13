@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+import ComingSoon from './modals/ComingSoon'
 
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
@@ -8,14 +10,19 @@ import sched from '../assets/sched.JPEG'
 // can refactor into class component if need be I think
 function SchedPub(props) {
 
-    // for now this should just pop up modal that says feature not yet available
+    const [modalShow, setModalShow] = useState(false)
+   
     const handleButton = () => {
         // this is a tricky one.. probably sends to new page with massive form. this is stretch. 
-        console.log('track your sched')
+        // for now just triggers modal
+        setModalShow(true)
     }
 
         return (
             <Container className='text-center'>
+
+                {modalShow && <ComingSoon show={modalShow} setShow={setModalShow} />}
+
                 <div className='d-flex flex-row justify-content-between mt-2'>
                     <h4 className='mt-3'>sched</h4>
 

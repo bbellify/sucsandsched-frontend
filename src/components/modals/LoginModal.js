@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
-
-import { LinkContainer } from 'react-router-bootstrap'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
@@ -12,8 +10,10 @@ import CloseButton from 'react-bootstrap/CloseButton';
 function LoginModal(props) {
 
     const { show, setShow } = props
-    const navigate = useNavigate()
 
+    const location = useLocation()
+    const navigate = useNavigate()
+    
     const [errors, setErrors] = useState({
         invCred: '',
         disabled: true
@@ -56,10 +56,7 @@ function LoginModal(props) {
         axios.post(`${process.env.REACT_APP_BASE_URL}/auth/login`, creds)
             .then(res => {
                 localStorage.setItem('token', res.data.token)
-                
-                // change this to redirect to refresh page it appeared on
-                // navigate('/my-account')
-                // for future reference - navigate() appears to have a problem with template literals, better to just do string concatenation 
+                navigate(`/my-account${location.pathname}`)
             })
             .catch(err => {
                 setErrors({
@@ -69,12 +66,9 @@ function LoginModal(props) {
             })
     }
 
-    // const navigate = useNavigate()
-    // I think in onSubmit I want to grab params from current url and add to my-account/current-params for redirect
-
     return (
         
-        <Modal className='my-4 text-center border border-danger' onHide={setShow} show={show}> 
+        <Modal className='my-4 text-center' onHide={setShow} show={show}> 
             <Modal.Header className='m-0'>
                 <CloseButton onClick={()=>setShow()} />
             </Modal.Header>
@@ -116,10 +110,6 @@ function LoginModal(props) {
                     </Button>
             </form>
             </Modal.Body>
-
-            {/* moved above login button out of below container.. not sure I'll need that once modal is fully wired */}
-            {/* <LinkContainer className='w-75 align-self-center mb-3' to='/login'>    
-            </LinkContainer> */}
         </Modal>
     );
 }
