@@ -72,7 +72,7 @@ function SucsComponent(props) {
                                     <td>{day['crunches'] ? day['crunches'] : 'Day'}</td>
                                     <td>{day['squats'] ? day['crunches'] : ''}</td>
                                     {/* replace the checkmark below, this one is kinda bad */}
-                                    {username && <td>{day[`${username}`] ? '☑️' : ''}</td>}
+                                    {username ? <td>{day[`${username}`] ? '☑️' : ''}</td> : null}
                                 </tr>
                             )
                         })}
