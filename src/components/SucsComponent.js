@@ -52,33 +52,21 @@ function SucsComponent(props) {
                 <Table className='my-3 text-center' striped bordered>
                     <thead>
                         <tr>
-                            <th>
-                                Day
-                            </th>
-                            <th>
-                                Situps
-                            </th>
-                            <th>
-                                Crunches
-                            </th>
-                            <th>
-                                Squats
-                            </th>
-                            {username && <th>mine</th>}
-
+                            <th>Day</th>
+                            <th>Situps</th>
+                            <th>Crunches</th>
+                            <th>Squats</th>
+                            {username ? <th>mine</th> : null}
                             {/* when rendering everyone elses, do conditional to correct for refresh bug if you refresh on this page and lose state.. maybe that won't be an issue? probably need to do same for below also */}
-
                             {/* 
                             {other usernames here, toggle on show all?}
                             */}
-                            
                         </tr>
                     </thead>
-
                     <tbody>
-                        {sucs.map(day => {
+                        {sucs.map((day, index) => {
                             return (
-                                <tr>
+                                <tr key={index}>
                                     <td className='fw-bold'>{day['sucs_id']}</td>
                                     <td>{day['situps'] ? day['situps'] : 'Rest'}</td>
                                     <td>{day['crunches'] ? day['crunches'] : 'Day'}</td>

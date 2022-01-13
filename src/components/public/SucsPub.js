@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { connect } from 'react-redux';
 
 import { getSucs } from '../../actions/sucsActions'
@@ -13,15 +12,11 @@ import Button from 'react-bootstrap/Button'
 function SucsPub(props) {
 
     const { sucs } = props
-    const navigate = useNavigate()
 
     const [modalShow, setModalShow] = useState(false)
     
-    // finish wiring this function to open modal
     const showModal = () => {
         setModalShow(!modalShow)
-        // show login modal that will redirect to sucs, should be able to remove navigate once modal works
-        // navigate('/login')
     }
 
     useEffect(() => {
@@ -62,9 +57,9 @@ function SucsPub(props) {
                     </thead>
 
                     <tbody>
-                        {sucs.map(day => {
+                        {sucs.map((day, index) => {
                             return (
-                                <tr>
+                                <tr key={index}>
                                     <td className='fw-bold'>{day['sucs_id']}</td>
                                     <td>{day['situps'] ? day['situps'] : 'Rest'}</td>
                                     <td>{day['crunches'] ? day['crunches'] : 'Day'}</td>
