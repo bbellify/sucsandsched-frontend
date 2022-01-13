@@ -106,7 +106,7 @@ function Register(props) {
                     ></input>
                     <Button 
                         disabled={isDisabled}
-                        className='w-100 my-1'
+                        className='w-100 my-1 border border-dark'
                         variant='light'
                         type='submit'
                     >

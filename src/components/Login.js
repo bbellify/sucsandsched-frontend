@@ -94,7 +94,7 @@ function Login(props) {
                     }
 
                     <Button 
-                        className='w-100 my-1'
+                        className='w-100 my-1 border border-dark'
                         variant='light'
                         type='submit'
                         disabled={errors.disabled}
@@ -102,7 +102,7 @@ function Login(props) {
                         login
                     </Button>
                     <LinkContainer className='w-100' to='/register'>
-                        <Button variant='light'>
+                        <Button variant='border border-dark light'>
                             need an account?
                         </Button>
                     </LinkContainer>
