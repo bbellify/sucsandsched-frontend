@@ -1,48 +1,63 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
 // import SucsComponent from './SucsComponent';
 // import Home from './Home'
 
 import { getUser } from '../actions/userActions'
+import { toggleSucs } from '../actions/sucsActions'
+
+import SucsModal from './modals/SucsModal'
 
 import Container from 'react-bootstrap/Container'
+import Button from 'react-bootstrap/Button'
 
-class Account extends React.Component {
 
-    componentDidMount() {
-        this.props.getUser()
+function Account(props) {
+
+    const [modalShow, setModalShow] = useState(false)
+    
+    const showModal = () => {
+        setModalShow(!modalShow)
     }
 
-    componentDidUpdate(prevProps) {
-        
+    useEffect(() => {
+        props.getUser()
+    }, [props.user])
+
+    const handleTrackSucs = () => {
+        props.toggleSucs()
     }
+    
+    return (
+        <Container className='mt-3'>
 
-    render() {
-        return (
-            <Container className='mt-3'>
+            {modalShow && <SucsModal show={modalShow} setShow={setModalShow} />}
 
-                <h2>welcome back {this.props.user.first_name}</h2>
+            <h2>welcome back {props.user.first_name}</h2>
 
+            <div>
+                <h3>tracking sucs: {props.user.does_sucs ? 'you bet' : 'not yet'}</h3>
                 
+                {!props.user.does_sucs && 
+                <Button variant='light' className='border border-dark' onClick={handleTrackSucs}> track your sucs </Button>
+                }   
 
-                {this.props.user &&
-                    <div>
-                        <h3>tracking sucs: {this.props.user.does_sucs ? 'you bet' : 'not yet'}</h3>
-                        <h3>upcoming races:</h3>
-                    </div>
+                {props.user.does_sucs && 
+                <Button variant='light' className='border border-dark' onClick={showModal}> stop tracking sucs </Button>
                 }
+                
+                <h3>upcoming races:</h3>
+                
+            </div>
 
 
-
-                {/* components can go here.. leaderboard, etc */}
-                {/* <Home /> */}
-                {/* <SucsComponent /> */}
-            </Container>
-        )
-    }
-
-}
+            {/* components can go here.. leaderboard, etc */}
+            {/* <Home /> */}
+            {/* <SucsComponent /> */}
+        </Container>
+        
+)}
 
 const mapStateToProps = state => {
     return {
@@ -52,5 +67,5 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { getUser })(Account);
+export default connect(mapStateToProps, { getUser, toggleSucs })(Account);
 

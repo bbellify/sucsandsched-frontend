@@ -1,14 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
+
+import { getSucs, getSucsRes, logSucs, toggleSucs } from '../actions/sucsActions'
 
 import Container from 'react-bootstrap/Container'
 import Table from 'react-bootstrap/Table'
 import Button from 'react-bootstrap/Button'
 
-import { getSucs, getSucsRes, logSucs, toggleSucs } from '../actions/sucsActions'
-
-import { useEffect } from 'react'
 
 function SucsComponent(props) {
 
@@ -39,6 +38,7 @@ function SucsComponent(props) {
 
     return (
         <Container>
+
             <div className='d-flex flex-row justify-content-between mt-2'>
                 <h4 className='mt-3 me-auto'>sucs</h4>
                 {((localStorage.getItem('token')) && !username) &&
