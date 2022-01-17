@@ -8,6 +8,8 @@ import Button from 'react-bootstrap/Button'
 import { getSucs, getSucsRes, logSucs } from '../actions/sucsActions'
 
 import { useEffect } from 'react'
+import { Axios } from 'axios';
+import axiosWithAuth from '../utils/axiosWithAuth';
 
 function SucsComponent(props) {
 
@@ -26,9 +28,17 @@ function SucsComponent(props) {
         props.logSucs(today.getDate())
     }
 
-    const handleButton = () => {
+    const handleToggleSucs = () => {
         // open modal that will turn on sucs and then redirect to sucs
         console.log('turn on sucs')
+        axiosWithAuth()
+            .post('/sucs/toggle')
+            .then( res => {
+                props.getSucsRes()
+            })
+            .catch(err => {
+
+            })
     }
 
     // I think below will be for the get everyone's sucs button. import getSucsAll above, pass to props below
@@ -41,7 +51,7 @@ function SucsComponent(props) {
             <div className='d-flex flex-row justify-content-between mt-2'>
                 <h4 className='mt-3'>sucs</h4>
                 {((localStorage.getItem('token')) && !username) &&
-                    <Button onClick={()=>handleButton()}variant='light' className='border-dark py-1 btn-sm'>track your sucs</Button>}
+                    <Button onClick={()=>handleToggleSucs()}variant='light' className='border-dark py-1 btn-sm'>track your sucs</Button>}
                 {username && 
                     <Button onClick={()=>logToday()}variant='light' className='border-dark py-1 btn-sm'>Log today</Button>}
             </div>
