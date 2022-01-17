@@ -50,14 +50,14 @@ function SucsComponent(props) {
     return (
         <Container>
             <div className='d-flex flex-row justify-content-between mt-2'>
-                <h4 className='mt-3'>sucs</h4>
+                <h4 className='mt-3 me-auto'>sucs</h4>
                 {((localStorage.getItem('token')) && !username) &&
                     <Button onClick={()=>handleToggleSucs()}variant='light' className='border-dark py-1 btn-sm'>track your sucs</Button>}
                 
                 {username && 
                     <Button onClick={()=>navigate('/my-account')} variant='light' className='border-dark py-1 btn-sm'>go to account settings to turn off tracking sucs</Button>}
                 {username && 
-                    <Button onClick={()=>logToday()}variant='light' className='border-dark py-1 btn-sm'>Log today</Button>}
+                    <Button onClick={()=>logToday()}variant='light' className='border-dark py-1 btn-sm ms-1'>Log today</Button>}
             </div>
             
             {(props.isFetching || props.sucs.length === 0) && <h2 className='mt-2'>incoming...</h2>}
