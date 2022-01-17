@@ -8,7 +8,6 @@ import Button from 'react-bootstrap/Button'
 import { getSucs, getSucsRes, logSucs } from '../actions/sucsActions'
 
 import { useEffect } from 'react'
-import { Axios } from 'axios';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
 function SucsComponent(props) {
