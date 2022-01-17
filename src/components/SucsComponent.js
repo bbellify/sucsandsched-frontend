@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
+import { useNavigate } from 'react-router-dom'
 
 import Container from 'react-bootstrap/Container'
 import Table from 'react-bootstrap/Table'
@@ -13,6 +14,7 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 function SucsComponent(props) {
 
     const { sucs, username } = props
+    const navigate = useNavigate()
     
     useEffect(() => {
         if (!localStorage.getItem('token')) {
@@ -51,6 +53,9 @@ function SucsComponent(props) {
                 <h4 className='mt-3'>sucs</h4>
                 {((localStorage.getItem('token')) && !username) &&
                     <Button onClick={()=>handleToggleSucs()}variant='light' className='border-dark py-1 btn-sm'>track your sucs</Button>}
+                
+                {username && 
+                    <Button onClick={()=>navigate('/my-account')} variant='light' className='border-dark py-1 btn-sm'>go to account settings to turn off tracking sucs</Button>}
                 {username && 
                     <Button onClick={()=>logToday()}variant='light' className='border-dark py-1 btn-sm'>Log today</Button>}
             </div>
