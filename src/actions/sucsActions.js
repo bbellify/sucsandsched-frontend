@@ -75,6 +75,20 @@ export const logSucs = (day) => {
     }
 }
 
+export const toggleSucs = () => {
+    return (dispatch) => {
+        dispatch(fetchStart())
+        axiosWithAuth()
+            .post('/sucs/toggle')
+            .then( res => {
+                getSucsRes()
+            })
+            .catch(err => {
+                dispatch(fetchError(err))
+            })
+    }
+}
+
 // will need to finish below function for toggle button, import in SucsComponent. in middleware or model I will probably have to do some weird shit to deal with the username problem for all the other users hmmm
 
 // export const getSucsAll = () => {

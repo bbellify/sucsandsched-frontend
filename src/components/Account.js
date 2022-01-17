@@ -24,12 +24,16 @@ class Account extends React.Component {
 
                 <h2>welcome back {this.props.user.first_name}</h2>
 
+                
+
                 {this.props.user &&
                     <div>
                         <h3>tracking sucs: {this.props.user.does_sucs ? 'you bet' : 'not yet'}</h3>
                         <h3>upcoming races:</h3>
                     </div>
-                }   
+                }
+
+
 
                 {/* components can go here.. leaderboard, etc */}
                 {/* <Home /> */}

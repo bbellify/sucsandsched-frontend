@@ -6,10 +6,9 @@ import Container from 'react-bootstrap/Container'
 import Table from 'react-bootstrap/Table'
 import Button from 'react-bootstrap/Button'
 
-import { getSucs, getSucsRes, logSucs } from '../actions/sucsActions'
+import { getSucs, getSucsRes, logSucs, toggleSucs } from '../actions/sucsActions'
 
 import { useEffect } from 'react'
-import axiosWithAuth from '../utils/axiosWithAuth';
 
 function SucsComponent(props) {
 
@@ -22,7 +21,7 @@ function SucsComponent(props) {
         } else {
             props.getSucsRes()
         }
-    }, [])
+    }, [sucs])
 
     const logToday = () => {
         const today = new Date()
@@ -30,16 +29,7 @@ function SucsComponent(props) {
     }
 
     const handleToggleSucs = () => {
-        // open modal that will turn on sucs and then redirect to sucs
-        console.log('turn on sucs')
-        axiosWithAuth()
-            .post('/sucs/toggle')
-            .then( res => {
-                props.getSucsRes()
-            })
-            .catch(err => {
-
-            })
+       props.toggleSucs()
     }
 
     // I think below will be for the get everyone's sucs button. import getSucsAll above, pass to props below
@@ -105,4 +95,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { getSucs, getSucsRes, logSucs })(SucsComponent)
+export default connect(mapStateToProps, { getSucs, getSucsRes, logSucs, toggleSucs })(SucsComponent)
