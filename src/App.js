@@ -14,6 +14,7 @@ import Account from './components/Account'
 import Login from './components/Login'
 import Logout from './components/Logout'
 import Register from './components/Register'
+import Scoreboard from './components/Scoreboard'
 
 function App() {
   return (
@@ -33,24 +34,29 @@ function App() {
             <RequireAuth redirectTo='/sucs'>
               <SucsComponent />
             </RequireAuth>
-          }
-        />
+        }/>
 
         <Route exact path={'/my-account/sched'} 
           element={
             <RequireAuth redirectTo='/sched'>
               <SchedComponent />
             </RequireAuth>
-          }
-        />
+        }/>
 
         <Route path={'/my-account'} 
           element={
             <RequireAuth redirectTo='/login'>
               <Account />
             </RequireAuth>
-          }
-        />
+        }/>
+
+        <Route path={'/my-account/scoreboard'} 
+          element={
+            <RequireAuth redirectTo='/login'>
+              <Scoreboard /> 
+            </RequireAuth>
+        }/>
+
       </Routes>
 
     </React.Fragment>

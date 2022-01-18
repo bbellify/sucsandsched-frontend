@@ -55,6 +55,10 @@ function NavComponent(props) {
                         <Nav.Link>Sched</Nav.Link>
                     </LinkContainer>
 
+                    <LinkContainer to='/my-account/scoreboard'>
+                        <Nav.Link>Scoreboard</Nav.Link>
+                    </LinkContainer>
+
                     <NavDropdown.Divider />
                     <LinkContainer to='/logout'>
                         <Nav.Link>Logout</Nav.Link>
