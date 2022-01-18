@@ -40,7 +40,7 @@ function Account(props) {
 
             </div>
 
-            <div className='border rounded-bottom vh-100 shadow-lg px-5 mt-2 pt-4' style={{ borderRadius: '10%' }} >
+            <div className='border-bottom-0 border-top vh-100 shadow-lg  px-4 px-sm-5 mt-2  pt-1 pt-sm-4' style={{ borderRadius: '40px' }} >
                 <h3 className='mt-5'>tracking sucs: {props.user.does_sucs ? 'affirmative' : 'not yet'}</h3>
                 
                 <h3>upcoming races:</h3>
