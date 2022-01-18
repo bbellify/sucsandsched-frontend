@@ -31,7 +31,7 @@ function Account(props) {
             {settingsShow && <SettingsModal show={settingsShow} setShow={setSettingsShow} doesSucs={props.user.does_sucs}/>}
 
             <div className='d-flex align-items-center'>
-                <h2 className='me-auto display-4'>welcome back {props.user.first_name}</h2>
+                <h2 className='me-auto sm-display-4'>welcome back {props.user.first_name}</h2>
 
                 <Button variant='light' className='border border-dark d-flex align-items-center px-4' onClick={showSettings}> 
                     Settings
