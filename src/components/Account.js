@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { getUser } from '../actions/userActions'
 import { toggleSucs } from '../actions/sucsActions'
 
-import SucsModal from './modals/SucsModal'
+import SettingsModal from './modals/SettingsModal'
 
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
@@ -15,39 +15,36 @@ import Button from 'react-bootstrap/Button'
 
 function Account(props) {
 
-    const [modalShow, setModalShow] = useState(false)
+    const [settingsShow, setSettingsShow] = useState(false)
     
-    const showModal = () => {
-        setModalShow(!modalShow)
+    const showSettings = () => {
+        setSettingsShow(!settingsShow)
     }
 
     useEffect(() => {
         props.getUser()
     }, [props.user])
-
-    const handleTrackSucs = () => {
-        props.toggleSucs()
-    }
     
     return (
         <Container className='mt-3'>
 
-            {modalShow && <SucsModal show={modalShow} setShow={setModalShow} />}
+            {settingsShow && <SettingsModal show={settingsShow} setShow={setSettingsShow} doesSucs={props.user.does_sucs}/>}
 
-            <h2>welcome back {props.user.first_name}</h2>
+            <div className='d-flex align-items-center'>
+                <h2 className='me-auto display-4'>welcome back {props.user.first_name}</h2>
 
-            <div>
-                <h3>tracking sucs: {props.user.does_sucs ? 'you bet' : 'not yet'}</h3>
-                
-                {!props.user.does_sucs && 
-                <Button variant='light' className='border border-dark' onClick={handleTrackSucs}> track your sucs </Button>
-                }   
+                <Button variant='light' className='border border-dark d-flex align-items-center px-4' onClick={showSettings}> 
+                    Settings
+                    <i className='ms-2 bi bi-gear-wide-connected'></i>
+                </Button>
 
-                {props.user.does_sucs && 
-                <Button variant='light' className='border border-dark' onClick={showModal}> stop tracking sucs </Button>
-                }
+            </div>
+
+            <div className='border rounded-bottom vh-100 shadow-lg px-5 mt-2 pt-4' style={{ borderRadius: '10%' }} >
+                <h3 className='mt-5'>tracking sucs: {props.user.does_sucs ? 'affirmative' : 'not yet'}</h3>
                 
                 <h3>upcoming races:</h3>
+                
                 
             </div>
 
@@ -68,4 +65,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, { getUser, toggleSucs })(Account);
-
