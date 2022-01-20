@@ -2,10 +2,10 @@
 ## Frontend web app for running club schedule/fitness tracking
 
 ### MVP
-[x] Anyone can go to the website and view sucs, the current running schedule, and upcoming races
+- [x] Anyone can go to the website and view sucs, the current running schedule, and upcoming races
 
-[ ] Users can create account
-    [ ] on account page, users can choose to track their daily sucs
+- [ ] Users can create account
+    - [ ] on account page, users can choose to track their daily sucs
     - on account page, users can add races to their upcoming list
     - on sucs page, users can toggle complete on a day
 
