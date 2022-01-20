@@ -1,5 +1,19 @@
 # Sucs and Sched
-## Frontend App for simple fitness schedules/run club
+## Frontend web app for running club schedule/fitness tracking
+
+### MVP
+[x] Anyone can go to the website and view sucs, the current running schedule, and upcoming races
+
+[ ] Users can create account
+    [ ] on account page, users can choose to track their daily sucs
+    - on account page, users can add races to their upcoming list
+    - on sucs page, users can toggle complete on a day
+
+3. Logged in user can
+    - see and edit own sucs status
+    - see sucs scoreboard (family sucs) - longest active streak, most days this month (requires backend adds)
+
+4. Admin has additional ability of clearing everyones sucs to start over
 
 ### Set Up
 1. create .env (all must begin with REACT_APP - REACT_APP_NEW_VAR)
@@ -12,19 +26,7 @@
     - CI=false npm run build
     - does something with ignoring errors, fixed something that strictmode didn't -- investigate
 
-### MVP
-1. Anyone can go to the website and view sucs, the current running schedule, and upcoming races
 
-2. Users can create account
-    - on account page, users can choose to track their daily sucs
-    - on account page, users can add races to their upcoming list
-    - on sucs page, users can toggle complete on a day
-
-3. Logged in user can
-    - see and edit own sucs status
-    - see sucs scoreboard (family sucs) - longest active streak, most days this month (requires backend adds)
-
-4. Admin has additional ability of clearing everyones sucs to start over
 
 ### To Do
 1. Auth/login
