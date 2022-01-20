@@ -4,16 +4,27 @@
 ### MVP
 - [x] Anyone can go to the website and view sucs, the current running schedule, and upcoming races
 
-- [ ] Users can create account
-    - [ ] on account page, users can choose to track their daily sucs
-    - on account page, users can add races to their upcoming list
-    - on sucs page, users can toggle complete on a day
+- User Accounts 
+    - [x] users can register new account
+    - [x] in account settings, users can toggle whether they're logging sucs or not
+    - [x] on sucs page, users can mark done for today
+    - [ ] on sucs page, users can see sucs status of all who have opted into scoreboards
+    - [ ] on account page, users can create new race for upcoming races list (all)
+    - [ ] on account page, users can add races to their upcoming list (personal)
 
-3. Logged in user can
-    - see and edit own sucs status
-    - see sucs scoreboard (family sucs) - longest active streak, most days this month (requires backend adds)
+- Scoreboards
+    - [ ] in account settings, users can toggle participation in scoreboards
+    - [ ] scoreboards display longest active sucs streak, most days this month, maybe more?
 
-4. Admin has additional ability of clearing everyones sucs to start over
+- Admin
+    - [ ] can clear sucs for start of new month
+
+#### Stretch
+- Running Log
+    - [ ] users can upload/create own running schedule
+    - [ ] users can log runs with distance, notes, etc
+    - [ ] users can see complete log of past runs
+
 
 ### Set Up
 1. create .env (all must begin with REACT_APP - REACT_APP_NEW_VAR)
@@ -25,24 +36,3 @@
 - Build command:
     - CI=false npm run build
     - does something with ignoring errors, fixed something that strictmode didn't -- investigate
-
-
-
-### To Do
-1. Auth/login
-    - Sucs - when logged in, users can see progress of all users and complete days for themselves 
-
-2. Home Component:
-    - adjust spacing at md breakpoint, add a little space between cards
-
-3. Close Offcanvas on link click
-    - maybe an onMouseExit? or equivalent
-
-4. Add upcoming races table, map over it for all upcoming races cards on Home component
-
-5. investigate netlify cli
-
-### Stretch
-1. User can upload own running schedule
-2. User can log own miles (public/private)
-3. User can see scoreboard of other users public logs
