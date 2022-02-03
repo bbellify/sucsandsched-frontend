@@ -4,12 +4,10 @@ import river from '../assets/river.png'
 import mountain from '../assets/mountain.png'
 import western from '../assets/western.png'
 import beer from '../assets/beer.png'
+import seattle from '../assets/seattle.png'
 
 import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
-import ListGroup from 'react-bootstrap/ListGroup'
-import ListGroupItem from 'react-bootstrap/ListGroupItem'
-
 
 class Home extends React.Component {
     constructor(props) {
@@ -18,7 +16,8 @@ class Home extends React.Component {
             card1: true,
             card2: true,
             card3: true,
-            card4: true
+            card4: true,
+            card5: true
         }
     }
 
@@ -33,6 +32,7 @@ class Home extends React.Component {
             <Container className='px-md-0'>
             <h2 className='my-3'>Upcoming Races:</h2>
             <Container className='px-0 d-md-flex flex-wrap' >
+
                 <Card className='shadow-sm mb-4 col-md-4 col-lg-4 position-relative'>
                     <div className='position-absolute top-0 end-0 d-md-none'>
                         <p 
@@ -55,6 +55,23 @@ class Home extends React.Component {
                         <p 
                             className='fw-bolder text-dark mx-2'
                             onClick={(()=>{this.toggleDisplay('card2')})}
+                            >{this.state.card1 ? '-' : '+'}</p>
+                    </div>
+                    {this.state.card1 && 
+                    <Card.Img variant="top" src={seattle} className='p-4 pb-2' />}
+                    <Card.Body className='my-0'>
+                        <Card.Title>Seattle Cherry Blossom Run</Card.Title>
+                        <Card.Subtitle className='text-muted py-1'>5k</Card.Subtitle>
+                        <Card.Subtitle className='text-muted py-1'>March 26, 2022</Card.Subtitle>
+                        <Card.Link href='https://www.racethebloom.com/Race/Info/WA/Seattle/CherryBlossomRun' target='_blank'>website</Card.Link>
+                    </Card.Body>
+                </Card>
+
+                <Card className='shadow-sm mb-4 col-md-4 col-lg-4 position-relative'>
+                    <div className='position-absolute top-0 end-0 d-md-none'>
+                        <p 
+                            className='fw-bolder text-dark mx-2'
+                            onClick={(()=>{this.toggleDisplay('card3')})}
                             >{this.state.card2 ? '-' : '+'}</p>
                     </div>
                     {this.state.card2 && 
@@ -71,7 +88,7 @@ class Home extends React.Component {
                     <div className='position-absolute top-0 end-0 d-md-none'>
                         <p 
                             className='fw-bolder text-dark mx-2'
-                            onClick={(()=>{this.toggleDisplay('card3')})}
+                            onClick={(()=>{this.toggleDisplay('card4')})}
                             >{this.state.card3 ? '-' : '+'}</p>
                     </div>
                     {this.state.card3 && 
@@ -88,7 +105,7 @@ class Home extends React.Component {
                     <div className='position-absolute top-0 end-0 d-md-none'>
                         <p 
                             className='fw-bolder text-dark mx-2'
-                            onClick={(()=>{this.toggleDisplay('card4')})}
+                            onClick={(()=>{this.toggleDisplay('card5')})}
                             >{this.state.card4 ? '-' : '+'}</p>
                     </div>
                     {this.state.card4 && 
@@ -101,20 +118,7 @@ class Home extends React.Component {
                     </Card.Body>
                 </Card>
 
-                </Container>
-
-                <Card className='shadow-sm mb-4 col-md-5 col-lg-4'>
-                    {/* eslint-disable-next-line */}
-                    <Card.Header>icon information -<a href='https://thenounproject.com/' target='_blank'> the noun project</a></Card.Header>
-                    
-                    <ListGroup className='list-group-flush'>
-                        <ListGroupItem>River by Dong Ik Seo from NounProject.com</ListGroupItem>
-                        <ListGroupItem>Beer by BirVa Mehta from NounProject.com</ListGroupItem>
-                        <ListGroupItem>Mountain by Florent B from NounProject.com
-                        </ListGroupItem>
-                        <ListGroupItem>Vertex by Marina Pugacheva from NounProject.com</ListGroupItem>
-                    </ListGroup>
-                </Card>
+            </Container>
             
         </Container>
         )
