@@ -55,9 +55,9 @@ class Home extends React.Component {
                         <p 
                             className='fw-bolder text-dark mx-2'
                             onClick={(()=>{this.toggleDisplay('card2')})}
-                            >{this.state.card1 ? '-' : '+'}</p>
+                            >{this.state.card2 ? '-' : '+'}</p>
                     </div>
-                    {this.state.card1 && 
+                    {this.state.card2 && 
                     <Card.Img variant="top" src={seattle} className='p-4 pb-2' />}
                     <Card.Body className='my-0'>
                         <Card.Title>Seattle Cherry Blossom Run</Card.Title>
@@ -72,9 +72,9 @@ class Home extends React.Component {
                         <p 
                             className='fw-bolder text-dark mx-2'
                             onClick={(()=>{this.toggleDisplay('card3')})}
-                            >{this.state.card2 ? '-' : '+'}</p>
+                            >{this.state.card3 ? '-' : '+'}</p>
                     </div>
-                    {this.state.card2 && 
+                    {this.state.card3 && 
                     <Card.Img variant="top" src={beer} className='p-4 pb-2' /> }
                     <Card.Body className='my-0'>
                         <Card.Title>Bend Beer Run</Card.Title>
@@ -89,9 +89,9 @@ class Home extends React.Component {
                         <p 
                             className='fw-bolder text-dark mx-2'
                             onClick={(()=>{this.toggleDisplay('card4')})}
-                            >{this.state.card3 ? '-' : '+'}</p>
+                            >{this.state.card4 ? '-' : '+'}</p>
                     </div>
-                    {this.state.card3 && 
+                    {this.state.card4 && 
                     <Card.Img variant="top" src={mountain} className='p-4 pb-2' /> }
                     <Card.Body className='my-0'>
                         <Card.Title>Three Sisters Skyline</Card.Title>
@@ -106,9 +106,9 @@ class Home extends React.Component {
                         <p 
                             className='fw-bolder text-dark mx-2'
                             onClick={(()=>{this.toggleDisplay('card5')})}
-                            >{this.state.card4 ? '-' : '+'}</p>
+                            >{this.state.card5 ? '-' : '+'}</p>
                     </div>
-                    {this.state.card4 && 
+                    {this.state.card5 && 
                     <Card.Img variant="top" src={western} className='p-4 mb-1' /> }
                     <Card.Body className='my-0 mt-2'>
                         <Card.Title>Western States</Card.Title>
