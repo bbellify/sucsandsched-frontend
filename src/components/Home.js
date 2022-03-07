@@ -33,7 +33,7 @@ class Home extends React.Component {
             <h2 className='my-3'>Upcoming Races:</h2>
             <Container className='px-0 d-md-flex flex-wrap' >
 
-                <Card className='shadow-sm mb-4 col-md-4 col-lg-4 position-relative'>
+                {/* <Card className='shadow-sm mb-4 col-md-4 col-lg-4 position-relative'>
                     <div className='position-absolute top-0 end-0 d-md-none'>
                         <p 
                             className='fw-bolder text-dark mx-2'
@@ -48,7 +48,7 @@ class Home extends React.Component {
                         <Card.Subtitle className='text-muted py-1'>March 6, 2022</Card.Subtitle>
                         <Card.Link href='https://www.bivouacracing.com/silverfalls' target='_blank'>website</Card.Link>
                     </Card.Body>
-                </Card>
+                </Card> */}
 
                 <Card className='shadow-sm mb-4 col-md-4 col-lg-4 position-relative'>
                     <div className='position-absolute top-0 end-0 d-md-none'>
