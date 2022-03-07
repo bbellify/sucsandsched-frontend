@@ -5,7 +5,7 @@ import ComingSoon from './modals/ComingSoon'
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 
-import sched from '../assets/sched.JPEG'
+import sched from '../assets/50sched.JPEG'
 
 // can refactor into class component if need be I think
 function SchedPub(props) {

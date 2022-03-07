@@ -6,7 +6,7 @@ import LoginModal from '../modals/LoginModal'
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
 
-import sched from '../../assets/sched.JPEG'
+import sched from '../../assets/50sched.JPEG'
 
 function SchedPub(props) {
 
