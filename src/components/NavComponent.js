@@ -39,10 +39,6 @@ function NavComponent(props) {
                     placement="end"
                     className='w-auto p-1 d-flex'
                 > 
-                    <LinkContainer to='/'>
-                        <Nav.Link>Home</Nav.Link>
-                    </LinkContainer>
-
                     <LinkContainer to='/my-account'>
                         <Nav.Link>Account</Nav.Link>
                     </LinkContainer>

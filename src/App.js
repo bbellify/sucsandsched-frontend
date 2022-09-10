@@ -9,7 +9,6 @@ import SucsPub from './components/public/SucsPub'
 import SchedPub from './components/public/SchedPub'
 import SucsComponent from './components/SucsComponent'
 import SchedComponent from './components/SchedComponent'
-import Home from './components/Home'
 import Account from './components/Account'
 import Login from './components/Login'
 import Logout from './components/Logout'
@@ -27,7 +26,7 @@ function App() {
         <Route path={'/login'} element={<Login />}/>
         <Route path={'/logout'} element={<Logout />}/>
         <Route path={'/register'} element={<Register />}/>
-        <Route path={'/'} element={<Home />}/>
+        <Route path={'/'} element={<SucsPub />}/>
 
         <Route path={'/my-account/sucs'} 
           element={
