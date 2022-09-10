@@ -26,7 +26,7 @@ function App() {
         <Route path={'/login'} element={<Login />}/>
         <Route path={'/logout'} element={<Logout />}/>
         <Route path={'/register'} element={<Register />}/>
-        <Route path={'/'} element={<SucsPub />}/>
+        <Route path={'/'} element={<SchedPub />}/>
 
         <Route path={'/my-account/sucs'} 
           element={
